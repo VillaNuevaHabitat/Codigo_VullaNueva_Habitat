@@ -216,3 +216,7 @@ C:\GABINO\NET CORE\VillaNueva_Habitat\bin\EntityFramework.xml
 C:\GABINO\NET CORE\VillaNueva_Habitat\bin\EntityFramework.SqlServer.xml
 C:\GABINO\NET CORE\VillaNueva_Habitat\bin\Microsoft.AspNet.Identity.Core.xml
 C:\GABINO\NET CORE\VillaNueva_Habitat\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\GABINO\NET CORE\VillaNueva_Habitat\bin\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\GABINO\NET CORE\VillaNueva_Habitat\bin\Microsoft.Extensions.Primitives.dll
+C:\GABINO\NET CORE\VillaNueva_Habitat\bin\Microsoft.Extensions.Configuration.Abstractions.xml
+C:\GABINO\NET CORE\VillaNueva_Habitat\bin\Microsoft.Extensions.Primitives.xml

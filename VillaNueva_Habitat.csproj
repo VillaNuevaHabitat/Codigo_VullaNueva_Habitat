@@ -67,6 +67,12 @@
       <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Configuration.Abstractions.7.0.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Primitives.7.0.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
@@ -170,15 +176,19 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\Cat_Tipo_UsuarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InicioController.cs" />
-    <Compile Include="Controllers\ProvedoresController.cs" />
+    <Compile Include="Controllers\ProvedorController.cs" />
+    <Compile Include="Controllers\Tipo_UsuarioController.cs" />
+    <Compile Include="Datos\Cat_Tipo_Usuario.cs" />
     <Compile Include="Datos\CDConexion.cs" />
-    <Compile Include="Datos\DataAccessLayer.cs" />
+    <Compile Include="Datos\DbProvedores.cs" />
     <Compile Include="Datos\DBUsuario.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\cat_tipo_usuario.cs" />
     <Compile Include="Models\CorreoDTO.cs" />
     <Compile Include="Models\Provedores.cs" />
     <Compile Include="Models\Roles.cs" />
@@ -199,6 +209,7 @@
     <Content Include="Plantilla\Confirmar.html" />
     <Content Include="Plantilla\Restablecer.html" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\CustumJS\AutoHideAlert.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -229,12 +240,18 @@
     <Content Include="Views\Inicio\Confirmar.cshtml" />
     <Content Include="Views\Inicio\Restablecer.cshtml" />
     <Content Include="Views\Inicio\Actualizar.cshtml" />
-    <Content Include="Views\Provedores\InsertProvedor.cshtml" />
     <Content Include="Views\Home\SinPermiso.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Provedor\Index.cshtml" />
+    <Content Include="Views\Provedor\InsertaProvedor.cshtml" />
+    <Content Include="Views\Home\Tipo_Usuario.cshtml" />
+    <Content Include="Views\Home\Crear_Tipo_Usuario.cshtml" />
+    <Content Include="Views\Home\Cat_Tipo_Usuario.cshtml" />
+    <Content Include="Views\Tipo_Usuario\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Cat_Tipo_Usuario\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

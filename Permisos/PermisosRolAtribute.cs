@@ -22,11 +22,11 @@ namespace VillaNueva_Habitat.Permisos
             {
                 UsuarioDTO usuario_ = HttpContext.Current.Session["_usuario"] as UsuarioDTO;
 
-                if (usuario_.RolId != this.IdRol)
-                {
-                    filterContext.Result = new RedirectResult("~/Home/SinPermiso");
+                ////if (usuario_.RolId != this.IdRol)
+                ////{
+                ////    filterContext.Result = new RedirectResult("~/Home/SinPermiso");
                     
-                }
+                ////}
             }
 
             base.OnActionExecuting(filterContext);

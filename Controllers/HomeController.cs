@@ -46,5 +46,11 @@ namespace VillaNueva_Habitat.Controllers
             Session["_usuario"] = null;
             return RedirectToAction("Login", "Inicio");
         }
+        public ActionResult Tipo_Usuario()
+        {
+            ViewBag.Message = "Tipo de Usuario";
+
+            return View();
+        }
     }
 }

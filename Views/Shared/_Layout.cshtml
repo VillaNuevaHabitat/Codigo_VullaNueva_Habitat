@@ -28,7 +28,7 @@
                 VillaNueva Habitat
             </div>
             <div class="list-group list-group-flush">
-               
+
                 @if (Request.IsAuthenticated)
                 {
                     @*<a href="#" class="list-group-item list-group-item-action bg-light">Projects</a>*@
@@ -40,10 +40,11 @@
                     }
                     else
                     {
-                        @Html.ActionLink("Catalogos", "Index", "Home", routeValues: null, htmlAttributes: new { @class = "list-group-item list-group-item-action bg-light" })
+                        @Html.ActionLink("Tipo de Usuario", "Tipo_Usuario", "Home", routeValues: null, htmlAttributes: new { @class = "list-group-item list-group-item-action bg-light" })
                         @Html.ActionLink("Control de Obra", "Index", "Home", routeValues: null, htmlAttributes: new { @class = "list-group-item list-group-item-action bg-light" })
                         @Html.ActionLink("Gastos y Presupuesto", "About", "Home", routeValues: null, htmlAttributes: new { @class = "list-group-item list-group-item-action bg-light" })
                         @Html.ActionLink("Compras", "Contact", "Home", routeValues: null, htmlAttributes: new { @class = "list-group-item list-group-item-action bg-light" })
+                        @Html.ActionLink("Provedores", "Index", "Provedores", routeValues: null, htmlAttributes: new { @class = "list-group-item list-group-item-action bg-light border-right" })
 
                     }
                 }
@@ -89,7 +90,7 @@
             $("#wrapper").toggleClass("toggled");
         });
     </script>
-
+    <script src="~/Scripts/CustumJS/AutoHideAlert.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>
