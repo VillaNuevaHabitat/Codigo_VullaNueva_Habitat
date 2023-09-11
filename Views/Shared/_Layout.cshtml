@@ -40,11 +40,13 @@
                     }
                     else
                     {
-                        @Html.ActionLink("Tipo de Usuario", "Tipo_Usuario", "Home", routeValues: null, htmlAttributes: new { @class = "list-group-item list-group-item-action bg-light" })
+                        @Html.ActionLink("Registrar Usuarios", "Index", "Usuarios", routeValues: null, htmlAttributes: new { @class = "list-group-item list-group-item-action bg-light border-right" })
+
+                        @Html.ActionLink("Tipo de Usuario", "Index", "Tipo_Usuario", routeValues: null, htmlAttributes: new { @class = "list-group-item list-group-item-action bg-light" })
                         @Html.ActionLink("Control de Obra", "Index", "Home", routeValues: null, htmlAttributes: new { @class = "list-group-item list-group-item-action bg-light" })
-                        @Html.ActionLink("Gastos y Presupuesto", "About", "Home", routeValues: null, htmlAttributes: new { @class = "list-group-item list-group-item-action bg-light" })
+                        
                         @Html.ActionLink("Compras", "Contact", "Home", routeValues: null, htmlAttributes: new { @class = "list-group-item list-group-item-action bg-light" })
-                        @Html.ActionLink("Provedores", "Index", "Provedores", routeValues: null, htmlAttributes: new { @class = "list-group-item list-group-item-action bg-light border-right" })
+                        @Html.ActionLink("Provedores", "Index", "Provedor", routeValues: null, htmlAttributes: new { @class = "list-group-item list-group-item-action bg-light border-right" })
 
                     }
                 }

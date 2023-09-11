@@ -1,17 +1,59 @@
 ﻿
+@model List<VillaNueva_Habitat.Models.cat_tipo_usuario>
+
 @{
-    Layout = null;
+    ViewData["Title"] = "Tipo de Usuario detalle";
+    var errorMessage = TempData["ErrorMessage"]?.ToString();
+    var successMessage = TempData["successMessage"]?.ToString();
 }
 
-<!DOCTYPE html>
+<h3>Catálogo de Tipos de Usuario</h3>
+<hr />
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Catálogo de Provedores</title>
-</head>
-<body>
-    <div> 
+@if (!string.IsNullOrWhiteSpace(successMessage))
+{
+    <div class="alert alert-success">
+        <b>Success : </b>@successMessage
+        <button type="button" class="btn-close float-end" data-bs-dismiss="alert" aria-label="close"></button>
     </div>
-</body>
-</html>
+}
+else if (!string.IsNullOrWhiteSpace(errorMessage))
+{
+    <div class="alert alert-danger">
+        <b>Error : </b>@errorMessage
+        <button type="button" class="btn-close float-end" data-bs-dismiss="alert" aria-label="close"></button>
+    </div>
+}
+
+<form>
+    <button asp-action="Create" asp-controller="Provedores" class="btn btn-primary mb-3">Create Provedor</button>
+    <table class="table table-responsive table-bordared table-hover">
+        <thead>
+            <tr class="table-active">
+                <th>Id tipo usuario</th>
+                <th>Descripcion</th>
+                <th>Abreviatura</th>
+                
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var tipo_usuario in Model)
+            {
+                <tr>
+                    <td>@tipo_usuario.Id_tipo_usuario</td>
+                    <td>@tipo_usuario.Descripcion</td>
+                    <td>@tipo_usuario.Abreviatura</td>
+                    
+                    <td>
+                        <div class="btn-group btn-group-sm">
+                            <a asp-controller="Provedores" asp-action="Edit" asp-route-id="@tipo_usuario.Id_tipo_usuario" class="btn btn-primary">Edit</a>
+                            <a asp-controller="Provedores" asp-action="Delete" asp-route-id="@tipo_usuario.Id_tipo_usuario" class="btn btn-danger">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+
+    </table>
+</form>

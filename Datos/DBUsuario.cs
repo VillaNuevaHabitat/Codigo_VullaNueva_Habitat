@@ -32,6 +32,7 @@ namespace VillaNueva_Habitat.Datos
                 cmd.Parameters.AddWithValue("@restablecer", usuario.Restablecer);
                 cmd.Parameters.AddWithValue("@confirmado", usuario.Confirmado);
                 cmd.Parameters.AddWithValue("@token", usuario.Token);
+                cmd.Parameters.AddWithValue("@Estatus", 1);
                 int filasAfectadas = cmd.ExecuteNonQuery();
                 if (filasAfectadas > 0) respuesta = true;
                 cmd.Connection = cn.CerrarConexion();
@@ -63,10 +64,11 @@ namespace VillaNueva_Habitat.Datos
                         {
                             usuario = new UsuarioDTO()
                             {
+                                IdUsuario = Convert.ToInt32(dr["IdUsuario"]),
                                 nombre = dr["nombre"].ToString(),
                                 Clave = dr["clave"].ToString(),
                                 ConfirmarClave = dr["ConfirmarClave"].ToString(),
-                                //RolId = (object)dr["IdRol"]
+                                RolId = Convert.ToInt32(dr["IdRol"])
                                 //Restablecer = (bool)dr["restablecer"],
                                 //Confirmado = (bool)dr["confirmado"]
                             };
@@ -101,11 +103,13 @@ namespace VillaNueva_Habitat.Datos
                     {
                         usuario = new UsuarioDTO()
                         {
+                            IdUsuario = Convert.ToInt32(dr["IdUsuario"].ToString()),
                             nombre = dr["nombre"].ToString(),
                             Clave = dr["Clave"].ToString(),
                             Restablecer = (bool)dr["Restablecer"],
                             Confirmado = (bool)dr["confirmado"],
-                            Token = dr["Token"].ToString()
+                            Token = dr["Token"].ToString(),
+                            Estatus = (bool)dr["Estatus"]
                         };
                     }
                 }
@@ -166,6 +170,31 @@ namespace VillaNueva_Habitat.Datos
             catch
             {
                 throw;
+            }
+        }
+
+        public static void Insert_Usuario_Log(int IdUsuario,string Nombre,string Correo,int RolId)
+        {
+            CDConexion cn = new CDConexion();
+            SqlCommand cmd = new SqlCommand();
+
+            try
+            {
+                cmd.Connection = cn.AbrirConexion();
+                cmd.CommandText = "usp_VillaNueva_Log";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@IdUsuario", IdUsuario);
+                cmd.Parameters.AddWithValue("@Nombre", Nombre);
+                cmd.Parameters.AddWithValue("@Correo", Correo);
+                cmd.Parameters.AddWithValue("@RolId", RolId);
+                cmd.ExecuteNonQuery();
+ 
+                cmd.Connection = cn.CerrarConexion();
+            }
+
+            catch(Exception ex)
+            {
+                ex.Message.ToString();
             }
         }
     }

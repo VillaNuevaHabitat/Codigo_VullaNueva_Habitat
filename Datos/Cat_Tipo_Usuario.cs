@@ -11,20 +11,26 @@ namespace VillaNueva_Habitat.Datos
 {
     public class Cat_Tipo_Usuario
     {
-        private readonly string _conexion;
+        //private readonly string _conexion;
 
-        public Cat_Tipo_Usuario(IConfiguration configuration)
+        //public Cat_Tipo_Usuario(IConfiguration configuration)
+       // {
+         //   _conexion = configuration.GetConnectionString("ConexionDB");
+        //}
+
+       
+        public List<cat_tipo_usuario> Obtener_Tipo_Usuario()
         {
-            _conexion = configuration.GetConnectionString("ConexionDB");
-        }
-        public IEnumerable<cat_tipo_usuario> Obtener_Tipo_Usuario()
-        {
-            using (SqlConnection conexion = new SqlConnection())
-            {
-                using (SqlCommand cmd = new SqlCommand("obtener_cat_tipo_usuario", conexion))
+            string conexion = "Data Source = LAPTOP-L7GOJV94\\SQLEXPRESS; Initial Catalog = Control_Obra; Integrated Security=true;";
+            SqlConnection con = new SqlConnection(conexion);
+
+
+            //using (SqlConnection con = new SqlConnection())
+            //{
+                using (SqlCommand cmd = new SqlCommand("obtener_cat_tipo_usuario", con))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    conexion.Open();
+                    con.Open();
 
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {
@@ -42,7 +48,7 @@ namespace VillaNueva_Habitat.Datos
                         return _obtener_cat_tipo_usuario;
                     }
                 }
-            }
+           // }
             
         }
 

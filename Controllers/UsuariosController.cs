@@ -5,29 +5,30 @@ using System.Web;
 using System.Web.Mvc;
 using VillaNueva_Habitat.Datos;
 using VillaNueva_Habitat.Models;
+using VillaNueva_Habitat.Servicios;
 
 namespace VillaNueva_Habitat.Controllers
 {
-    public class Tipo_UsuarioController : Controller
+    public class UsuariosController : Controller
     {
-        // GET: Tipo_Usuario
+        // GET: Usuarios
         [HttpGet]
         public ActionResult Index()
         {
-            List<cat_tipo_usuario> lst_tipo_usuario = new List<cat_tipo_usuario>();
 
-            Cat_Tipo_Usuario _tipo_usuario = new Cat_Tipo_Usuario();
+            List<Provedores> provedores = new List<Provedores>();
+            DbProvedores _provedores = new DbProvedores();
 
             try
             {
-                lst_tipo_usuario = _tipo_usuario.Obtener_Tipo_Usuario();
+                provedores = _provedores.GetAll();
             }
             catch (Exception ex)
             {
                 TempData["errorMessage"] = ex.Message;
             }
 
-            return View(lst_tipo_usuario);
+            return View(provedores);
         }
 
         public ActionResult InsertaProvedor()

@@ -41,7 +41,7 @@ namespace VillaNueva_Habitat.Controllers
                     }
                     else
                     {
-                       
+                        DBUsuario.Insert_Usuario_Log(usuario.IdUsuario,usuario.nombre,correo,usuario.RolId);
                         return RedirectToAction("Index", "Home");
                     }
                 }

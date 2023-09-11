@@ -15,6 +15,7 @@ namespace VillaNueva_Habitat.Models
         public bool Restablecer { get; set; }
         public bool Confirmado { get; set; }
         public string Token { get; set; }
-        public Roles RolId { get; set; }
+        public int RolId { get; set; }
+        public bool Estatus { get; set; }
     }
 }

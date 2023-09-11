@@ -181,6 +181,7 @@
     <Compile Include="Controllers\InicioController.cs" />
     <Compile Include="Controllers\ProvedorController.cs" />
     <Compile Include="Controllers\Tipo_UsuarioController.cs" />
+    <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Datos\Cat_Tipo_Usuario.cs" />
     <Compile Include="Datos\CDConexion.cs" />
     <Compile Include="Datos\DbProvedores.cs" />
@@ -244,10 +245,10 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Provedor\Index.cshtml" />
     <Content Include="Views\Provedor\InsertaProvedor.cshtml" />
-    <Content Include="Views\Home\Tipo_Usuario.cshtml" />
-    <Content Include="Views\Home\Crear_Tipo_Usuario.cshtml" />
     <Content Include="Views\Home\Cat_Tipo_Usuario.cshtml" />
     <Content Include="Views\Tipo_Usuario\Index.cshtml" />
+    <Content Include="Views\Usuarios\Registrar.cshtml" />
+    <Content Include="Views\Usuarios\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
