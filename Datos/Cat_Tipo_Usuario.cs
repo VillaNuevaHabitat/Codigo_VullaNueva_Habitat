@@ -11,92 +11,143 @@ namespace VillaNueva_Habitat.Datos
 {
     public class Cat_Tipo_Usuario
     {
-        //private readonly string _conexion;
+        CDConexion cn = new CDConexion();
+        SqlCommand cmd = new SqlCommand();
 
-        //public Cat_Tipo_Usuario(IConfiguration configuration)
-       // {
-         //   _conexion = configuration.GetConnectionString("ConexionDB");
-        //}
 
-       
         public List<cat_tipo_usuario> Obtener_Tipo_Usuario()
         {
-            string conexion = "Data Source = LAPTOP-L7GOJV94\\SQLEXPRESS; Initial Catalog = Control_Obra; Integrated Security=true;";
-            SqlConnection con = new SqlConnection(conexion);
+            cmd.Connection = cn.AbrirConexion();
+            cmd.Connection = cn.AbrirConexion();
+            cmd.CommandText = "obtener_cat_tipo_usuario";
+            cmd.CommandType = CommandType.StoredProcedure;
+           
+                
 
-
-            //using (SqlConnection con = new SqlConnection())
-            //{
-                using (SqlCommand cmd = new SqlCommand("obtener_cat_tipo_usuario", con))
+            using (SqlDataReader dr = cmd.ExecuteReader())
+            {
+                List<cat_tipo_usuario> _obtener_cat_tipo_usuario = new List<cat_tipo_usuario>();
+                while (dr.Read())
                 {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    con.Open();
-
-                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    cat_tipo_usuario _cat_tipo_usuario = new cat_tipo_usuario()
                     {
-                        List<cat_tipo_usuario> _obtener_cat_tipo_usuario = new List<cat_tipo_usuario>();
-                        while (dr.Read())
-                        {
-                            cat_tipo_usuario _cat_tipo_usuario = new cat_tipo_usuario()
-                            {
-                                Id_tipo_usuario = Convert.ToInt32(dr["Id_tipo_usuario"]),
-                                Descripcion = dr["Descripcion"].ToString(),
-                                Abreviatura = dr["Abreviatura"].ToString()
-                            };
-                            _obtener_cat_tipo_usuario.Add(_cat_tipo_usuario);
-                        }
-                        return _obtener_cat_tipo_usuario;
-                    }
+                        Id_tipo_usuario = Convert.ToInt32(dr["Id_tipo_usuario"]),
+                        Descripcion = dr["Descripcion"].ToString(),
+                        Abreviatura = dr["Abreviatura"].ToString()
+                    };
+                    _obtener_cat_tipo_usuario.Add(_cat_tipo_usuario);
+                   
                 }
-           // }
+                cmd.Connection = cn.CerrarConexion();
+                return _obtener_cat_tipo_usuario;
+               
+            }
+           
+           
+
+        }
+
+        public List<cat_tipo_usuario> Obtener_Tipo_Usuario_por_id(int Id_tipo_usuario)
+        {
+            cmd.Connection = cn.AbrirConexion();
+            cmd.Connection = cn.AbrirConexion();
+            cmd.CommandText = "usp_get_tipo_usuario_por_id";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@Id_tipo_usuario", Id_tipo_usuario);
+            
+
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    List<cat_tipo_usuario> _obtener_cat_tipo_usuario = new List<cat_tipo_usuario>();
+                    while (dr.Read())
+                    {
+                        cat_tipo_usuario _cat_tipo_usuario = new cat_tipo_usuario()
+                        {
+                            Id_tipo_usuario = Convert.ToInt32(dr["Id_tipo_usuario"]),
+                            Descripcion = dr["Descripcion"].ToString(),
+                            Abreviatura = dr["Abreviatura"].ToString()
+                        };
+                        _obtener_cat_tipo_usuario.Add(_cat_tipo_usuario);
+                        
+                }
+                cmd.Connection = cn.CerrarConexion();
+                return _obtener_cat_tipo_usuario;
+                }
+           
+        }
+        public bool Actualizar_Tipo_Usuario(cat_tipo_usuario _cat_tipo_usuario)
+        {
+            int i = 0;
+
+            cmd.Connection = cn.AbrirConexion();
+            cmd.CommandText = "actualizar_cat_tipo_usuario";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Id_tipo_usuario", _cat_tipo_usuario.Id_tipo_usuario);
+            cmd.Parameters.AddWithValue("@Descripcion", _cat_tipo_usuario.Descripcion);
+            cmd.Parameters.AddWithValue("@Abreviatura", _cat_tipo_usuario.Abreviatura);
+               
+            i = cmd.ExecuteNonQuery();
+            cmd.Connection = cn.CerrarConexion();
+            //}
+            if (i > 0)
+            {
+                return true;
+            }
+            else
+            {
+               return false;
+            }
             
         }
 
-        public void Actualizar_Tipo_Usuario(cat_tipo_usuario _cat_tipo_usuario)
+        public bool Agregar_Tipo_Usuario(cat_tipo_usuario _cat_tipo_usuario)
         {
-            using (SqlConnection conexion = new SqlConnection())
+            bool respuesta = false;
+
+            // using (SqlCommand cmd = new SqlCommand("agregar_cat_tipo_usuario", conexion))
+            // {cmd.Connection = cn.AbrirConexion();
+            cmd.Connection = cn.AbrirConexion();
+            cmd.CommandText = "agregar_cat_tipo_usuario";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@Descripcion", _cat_tipo_usuario.Descripcion);
+            cmd.Parameters.AddWithValue("@Abreviatura", _cat_tipo_usuario.Abreviatura);
+                 
+            respuesta =Convert.ToBoolean(cmd.ExecuteNonQuery());
+            cmd.Connection = cn.CerrarConexion();
+            if (respuesta)
             {
-                using (SqlCommand cmd = new SqlCommand("actualizar_cat_tipo_usuario", conexion))
-                {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@Id_tipo_usuario", _cat_tipo_usuario.Id_tipo_usuario);
-                    cmd.Parameters.AddWithValue("@Descripcion", _cat_tipo_usuario.Descripcion);
-                    cmd.Parameters.AddWithValue("@Abreviatura", _cat_tipo_usuario.Abreviatura);
-                    conexion.Open();
-                    cmd.ExecuteNonQuery();
-                }
+                return true;
+            }     
+            else
+            {
+                return false;
             }
+                
         }
 
-        public void Agregar_Tipo_Usuario(cat_tipo_usuario _cat_tipo_usuario)
+        public string Eliminar_Tipo_Usuario(int id)
         {
-            using (SqlConnection conexion = new SqlConnection())
+            string respuesta = string.Empty;
+            try
             {
-                using (SqlCommand cmd = new SqlCommand("agregar_cat_tipo_usuario", conexion))
-                {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                   
-                    cmd.Parameters.AddWithValue("@Descripcion", _cat_tipo_usuario.Descripcion);
-                    cmd.Parameters.AddWithValue("@Abreviatura", _cat_tipo_usuario.Abreviatura);
-                    conexion.Open();
-                    cmd.ExecuteNonQuery();
-                }
-            }
-        }
+                cmd.Connection = cn.AbrirConexion();
+                cmd.CommandText = "eliminar_cat_tipo_usuario";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Id_tipo_usuario", id);
+                cmd.Parameters.Add("@OutputMessage", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
 
-        public void Eliminar_Tipo_Usuario(int id)
-        {
-            using (SqlConnection conexion = new SqlConnection())
-            {
-                using (SqlCommand cmd = new SqlCommand("eliminar_cat_tipo_usuario", conexion))
-                {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@Id_tipo_usuario", id);
-                   
-                    conexion.Open();
-                    cmd.ExecuteNonQuery();
-                }
+                cmd.ExecuteNonQuery();
+                respuesta = cmd.Parameters["@OutputMessage"].Value.ToString();
+                cmd.Connection = cn.CerrarConexion();
+                
             }
+            catch (Exception ex)
+            {
+                ex.Message.ToString();
+            }
+            return respuesta;
         }
     }
 }

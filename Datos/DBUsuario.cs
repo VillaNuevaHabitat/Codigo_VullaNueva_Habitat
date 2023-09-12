@@ -66,6 +66,7 @@ namespace VillaNueva_Habitat.Datos
                             {
                                 IdUsuario = Convert.ToInt32(dr["IdUsuario"]),
                                 nombre = dr["nombre"].ToString(),
+                                Correo = dr["Correo"].ToString(),
                                 Clave = dr["clave"].ToString(),
                                 ConfirmarClave = dr["ConfirmarClave"].ToString(),
                                 RolId = Convert.ToInt32(dr["IdRol"])
@@ -75,7 +76,7 @@ namespace VillaNueva_Habitat.Datos
                         }
                     
                 }
-                cmd.Connection = cn.CerrarConexion();
+                cn.CerrarConexion();
             }
 
             catch(Exception ex)
@@ -173,7 +174,7 @@ namespace VillaNueva_Habitat.Datos
             }
         }
 
-        public static void Insert_Usuario_Log(int IdUsuario,string Nombre,string Correo,int RolId)
+        public static void Insert_Usuario_Log(int IdUsuario,string Nombre,string Correo,int RolId,string Mensaje,string Tipo_Pagina)
         {
             CDConexion cn = new CDConexion();
             SqlCommand cmd = new SqlCommand();
@@ -187,6 +188,8 @@ namespace VillaNueva_Habitat.Datos
                 cmd.Parameters.AddWithValue("@Nombre", Nombre);
                 cmd.Parameters.AddWithValue("@Correo", Correo);
                 cmd.Parameters.AddWithValue("@RolId", RolId);
+                cmd.Parameters.AddWithValue("@Mensaje", Mensaje);
+                cmd.Parameters.AddWithValue("@Tipo_Pagina", Tipo_Pagina);
                 cmd.ExecuteNonQuery();
  
                 cmd.Connection = cn.CerrarConexion();

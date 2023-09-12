@@ -13,26 +13,21 @@ namespace VillaNueva_Habitat.Datos
         public List<Provedores> GetAll()
         {
             List<Provedores> leadListEntity = new List<Provedores>();
-            //CDConexion cn = new CDConexion();
-            //SqlCommand cmd = new SqlCommand();
+            CDConexion cn = new CDConexion();
+            SqlCommand cmd = new SqlCommand();
 
             try
             {
-                string conexion = "Data Source = LAPTOP-L7GOJV94\\SQLEXPRESS; Initial Catalog = Control_Obra; Integrated Security=true;";
-                SqlConnection con = new SqlConnection(conexion);
 
+                // SqlDataAdapter dataAdapter = new SqlDataAdapter("usp_seleccionar_provedores", cn);
+                // con.Open();
+                //DataTable dt = new DataTable();
 
-                //cmd.Connection = cn.AbrirConexion();
-                //SqlCommand cmd = new SqlCommand("usp_seleccionar_provedores", con);
-                //cmd.CommandText = "usp_seleccionar_provedores";
-                //cmd.CommandType = CommandType.StoredProcedure;
-                SqlDataAdapter dataAdapter = new SqlDataAdapter("usp_seleccionar_provedores", con);
-                con.Open();
-                DataTable dt = new DataTable();
+                // dataAdapter.Fill(dt);
 
-                dataAdapter.Fill(dt);
-
-                foreach(DataRow dr in dt.Rows)
+                //foreach(DataRow dr in dt.Rows)
+                cmd.Connection = cn.AbrirConexion();
+                using (SqlDataReader dr = cmd.ExecuteReader())
                 {
                     leadListEntity.Add(
                         new Provedores
@@ -50,9 +45,8 @@ namespace VillaNueva_Habitat.Datos
 
                     );
                 }
-                con.Close();
-                
-                //cmd.Connection = cn.CerrarConexion();
+                                
+                cmd.Connection = cn.CerrarConexion();
                 
 
             }

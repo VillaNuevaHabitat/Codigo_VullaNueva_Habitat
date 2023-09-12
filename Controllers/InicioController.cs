@@ -29,8 +29,10 @@ namespace VillaNueva_Habitat.Controllers
                 if (usuario != null)
                 {
                     FormsAuthentication.SetAuthCookie(usuario.Correo, false);
-                    Session["_usuario"] = usuario.nombre;
-                 
+                    Session["_usuario"]  = usuario.nombre;
+                    Session["IdUsuario"] = usuario.IdUsuario;
+                    Session["Correo"]    = usuario.Correo;
+                    Session["RolId"]     = usuario.RolId;
                     if (usuario.Confirmado)
                     {
                         ViewBag.Mensaje = $"Falta confirmar su cuenta. Se le envio un correo a {correo}";
@@ -41,7 +43,7 @@ namespace VillaNueva_Habitat.Controllers
                     }
                     else
                     {
-                        DBUsuario.Insert_Usuario_Log(usuario.IdUsuario,usuario.nombre,correo,usuario.RolId);
+                        DBUsuario.Insert_Usuario_Log(Convert.ToInt32(Session["IdUsuario"]), Session["_usuario"].ToString(), Session["Correo"].ToString(), Convert.ToInt32(Session["RolId"]),"Bienvenido !" + Session["_usuario"].ToString(),"Usuario Autenticado en Login");
                         return RedirectToAction("Index", "Home");
                     }
                 }
