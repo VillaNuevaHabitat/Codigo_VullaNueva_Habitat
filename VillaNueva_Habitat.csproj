@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -62,9 +61,6 @@
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.AspNet.Identity.EntityFramework.2.2.4\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
@@ -176,7 +172,13 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\Cat_Tipo_UsuarioController.cs" />
+    <Compile Include="Controllers\Adm_EmpresasController.cs" />
+    <Compile Include="Controllers\Cat_Sub_Proceso_CatController.cs" />
+    <Compile Include="Controllers\Cat_Sub_Proceso_SysController.cs" />
+    <Compile Include="Controllers\Cat_Sub_Proceso_UsrController.cs" />
+    <Compile Include="Controllers\Cat_Tipo_DocumentoController.cs" />
+    <Compile Include="Controllers\Cat_Tipo_ProcesoController.cs" />
+    <Compile Include="Controllers\Control_ObraController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InicioController.cs" />
     <Compile Include="Controllers\ProvedorController.cs" />
@@ -184,11 +186,23 @@
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Datos\Cat_Tipo_Usuario.cs" />
     <Compile Include="Datos\CDConexion.cs" />
+    <Compile Include="Datos\DAL_Adm_Empresas.cs" />
+    <Compile Include="Datos\DAL_Cat_Sub_Proceso_Cat.cs" />
+    <Compile Include="Datos\DAL_Cat_Sub_Proceso_Usr.cs" />
     <Compile Include="Datos\DbProvedores.cs" />
     <Compile Include="Datos\DBUsuario.cs" />
+    <Compile Include="Datos\Db_Cat_Sub_Proceso_Sys.cs" />
+    <Compile Include="Datos\Db_Cat_Tipo_Documento.cs" />
+    <Compile Include="Datos\Db_Cat_Tipo_Proceso.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Cat_Administrador_Empresa.cs" />
+    <Compile Include="Models\Cat_Sub_Proceso_Cat.cs" />
+    <Compile Include="Models\Cat_Sub_Proceso_Usr.cs" />
+    <Compile Include="Models\Cat_Tipo_Documento.cs" />
+    <Compile Include="Models\Cat_Tipo_Proceso.cs" />
+    <Compile Include="Models\Cat_Tipo_Sub_Proceso.cs" />
     <Compile Include="Models\cat_tipo_usuario.cs" />
     <Compile Include="Models\CorreoDTO.cs" />
     <Compile Include="Models\Provedores.cs" />
@@ -209,6 +223,8 @@
     <Content Include="Imagenes\LOGO MAIL.png" />
     <Content Include="Plantilla\Confirmar.html" />
     <Content Include="Plantilla\Restablecer.html" />
+    <None Include="Properties\PublishProfiles\chrissmen-001-site12 - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\chrissmen-001-site12 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\CustumJS\AutoHideAlert.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -246,17 +262,44 @@
     <Content Include="Views\Provedor\Index.cshtml" />
     <Content Include="Views\Provedor\InsertaProvedor.cshtml" />
     <Content Include="Views\Home\Cat_Tipo_Usuario.cshtml" />
-    <Content Include="Views\Tipo_Usuario\Index.cshtml" />
     <Content Include="Views\Usuarios\Registrar.cshtml" />
     <Content Include="Views\Usuarios\Index.cshtml" />
-    <Content Include="Views\Tipo_Usuario\InsertaProvedor.cshtml" />
-    <Content Include="Views\Tipo_Usuario\InsertaProvedores.cshtml" />
-    <Content Include="Views\Tipo_Usuario\Edit.cshtml" />
     <Content Include="Views\Tipo_Usuario\Delete.cshtml" />
+    <Content Include="Views\Tipo_Usuario\Index.cshtml" />
+    <Content Include="Views\Tipo_Usuario\Create.cshtml" />
+    <Content Include="Views\Tipo_Usuario\Details.cshtml" />
+    <Content Include="Views\Cat_Tipo_Proceso\Create.cshtml" />
+    <Content Include="Views\Cat_Tipo_Proceso\Edit.cshtml" />
+    <Content Include="Views\Cat_Tipo_Proceso\Details.cshtml" />
+    <Content Include="Views\Cat_Tipo_Proceso\Delete.cshtml" />
+    <Content Include="Views\Cat_Tipo_Documento\Index.cshtml" />
+    <Content Include="site12.PublishSettings.PublishSet" />
+    <Content Include="Views\Cat_Tipo_Documento\Create.cshtml" />
+    <Content Include="Views\Tipo_Usuario\Edit.cshtml" />
+    <Content Include="Views\Cat_Tipo_Documento\Edit.cshtml" />
+    <Content Include="Views\Cat_Tipo_Documento\Details.cshtml" />
+    <Content Include="Views\Cat_Tipo_Documento\Delete.cshtml" />
+    <Content Include="Views\Cat_Sub_Proceso_Sys\Index.cshtml" />
+    <Content Include="Views\Cat_Sub_Proceso_Sys\Create.cshtml" />
+    <Content Include="Views\Cat_Sub_Proceso_Sys\Edit.cshtml" />
+    <Content Include="Views\Cat_Sub_Proceso_Sys\Details.cshtml" />
+    <Content Include="Views\Cat_Sub_Proceso_Sys\Delete.cshtml" />
+    <Content Include="Views\Cat_Sub_Proceso_Usr\Index.cshtml" />
+    <Content Include="Views\Cat_Sub_Proceso_Usr\Create.cshtml" />
+    <Content Include="Views\Cat_Sub_Proceso_Usr\Edit.cshtml" />
+    <Content Include="Views\Cat_Sub_Proceso_Usr\Details.cshtml" />
+    <Content Include="Views\Cat_Sub_Proceso_Usr\Delete.cshtml" />
+    <Content Include="Views\Cat_Sub_Proceso_Cat\Index.cshtml" />
+    <Content Include="Views\Cat_Sub_Proceso_Cat\Create.cshtml" />
+    <Content Include="Views\Cat_Sub_Proceso_Cat\Edit.cshtml" />
+    <Content Include="Views\Cat_Sub_Proceso_Cat\Details.cshtml" />
+    <Content Include="Views\Cat_Sub_Proceso_Cat\Delete.cshtml" />
+    <Content Include="Views\Cat_Tipo_Proceso\Index.cshtml" />
+    <Content Include="Views\Control_Obra\Index.cshtml" />
+    <Content Include="Views\Adm_Empresas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Cat_Tipo_Usuario\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -291,12 +334,6 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
-  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

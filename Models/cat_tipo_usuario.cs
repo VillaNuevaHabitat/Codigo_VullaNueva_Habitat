@@ -9,6 +9,8 @@ namespace VillaNueva_Habitat.Models
 {
     public class cat_tipo_usuario
     {
+       
+
         public int Id_tipo_usuario {get;set;}
         [Required]
         [DisplayName("Descripción")]

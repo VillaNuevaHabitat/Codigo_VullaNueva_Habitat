@@ -41,13 +41,19 @@
                     else
                     {
                         @Html.ActionLink("Registrar Usuarios", "Index", "Usuarios", routeValues: null, htmlAttributes: new { @class = "list-group-item list-group-item-action bg-light border-right" })
-
                         @Html.ActionLink("Tipo de Usuario", "Index", "Tipo_Usuario", routeValues: null, htmlAttributes: new { @class = "list-group-item list-group-item-action bg-light" })
-                        @Html.ActionLink("Control de Obra", "Index", "Home", routeValues: null, htmlAttributes: new { @class = "list-group-item list-group-item-action bg-light" })
-                        
-                        @Html.ActionLink("Compras", "Contact", "Home", routeValues: null, htmlAttributes: new { @class = "list-group-item list-group-item-action bg-light" })
-                        @Html.ActionLink("Provedores", "Index", "Provedor", routeValues: null, htmlAttributes: new { @class = "list-group-item list-group-item-action bg-light border-right" })
+                        @Html.ActionLink("Tipo Documento", "Index", "Cat_Tipo_Documento", routeValues: null, htmlAttributes: new { @class = "list-group-item list-group-item-action bg-light" })
+                        @Html.ActionLink("Tipo Proceso", "Index", "Cat_Tipo_Proceso", routeValues: null, htmlAttributes: new { @class = "list-group-item list-group-item-action bg-light" })
 
+                        @Html.ActionLink("Sub Proceso Sistema", "Index", "Cat_Sub_Proceso_SYS", routeValues: null, htmlAttributes: new { @class = "list-group-item list-group-item-action bg-light" })
+                        @Html.ActionLink("Sub Proceso Usuario", "Index", "Cat_Sub_Proceso_Usr", routeValues: null, htmlAttributes: new { @class = "list-group-item list-group-item-action bg-light" })
+                        @Html.ActionLink("Sub Proceso Catálogos", "Index", "Cat_Sub_Proceso_Cat", routeValues: null, htmlAttributes: new { @class = "list-group-item list-group-item-action bg-light" })
+                        @Html.ActionLink("Administración de Empresas", "Index", "Adm_Empresas", routeValues: null, htmlAttributes: new { @class = "list-group-item list-group-item-action bg-light" })
+
+                        @Html.ActionLink("Control de Obra", "Index", "Control_Obra", routeValues: null, htmlAttributes: new { @class = "list-group-item list-group-item-action bg-light" })
+
+                        @Html.ActionLink("Compras", "Contact", "Home", routeValues: null, htmlAttributes: new { @class = "list-group-item list-group-item-action bg-light" })
+                        
                     }
                 }
                 else
@@ -92,7 +98,9 @@
             $("#wrapper").toggleClass("toggled");
         });
     </script>
+
     <script src="~/Scripts/CustumJS/AutoHideAlert.js"></script>
+
     @RenderSection("scripts", required: false)
 </body>
 </html>

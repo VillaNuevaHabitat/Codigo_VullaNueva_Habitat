@@ -15,11 +15,10 @@ namespace VillaNueva_Habitat.Datos
         SqlCommand cmd = new SqlCommand();
 
 
-        public List<cat_tipo_usuario> Obtener_Tipo_Usuario()
+        public List<cat_tipo_usuario> usp_Obtener_Tipo_Usuario()
         {
             cmd.Connection = cn.AbrirConexion();
-            cmd.Connection = cn.AbrirConexion();
-            cmd.CommandText = "obtener_cat_tipo_usuario";
+            cmd.CommandText = "usp_obtener_cat_tipo_usuario";
             cmd.CommandType = CommandType.StoredProcedure;
            
                 
@@ -47,7 +46,7 @@ namespace VillaNueva_Habitat.Datos
 
         }
 
-        public List<cat_tipo_usuario> Obtener_Tipo_Usuario_por_id(int Id_tipo_usuario)
+        public List<cat_tipo_usuario> usp_Obtener_Tipo_Usuario_por_id(int Id_tipo_usuario)
         {
             cmd.Connection = cn.AbrirConexion();
             cmd.Connection = cn.AbrirConexion();
@@ -76,12 +75,12 @@ namespace VillaNueva_Habitat.Datos
                 }
            
         }
-        public bool Actualizar_Tipo_Usuario(cat_tipo_usuario _cat_tipo_usuario)
+        public bool usp_Actualizar_Tipo_Usuario(cat_tipo_usuario _cat_tipo_usuario)
         {
             int i = 0;
 
             cmd.Connection = cn.AbrirConexion();
-            cmd.CommandText = "actualizar_cat_tipo_usuario";
+            cmd.CommandText = "Usp_actualizar_cat_tipo_usuario";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@Id_tipo_usuario", _cat_tipo_usuario.Id_tipo_usuario);
             cmd.Parameters.AddWithValue("@Descripcion", _cat_tipo_usuario.Descripcion);
@@ -101,22 +100,20 @@ namespace VillaNueva_Habitat.Datos
             
         }
 
-        public bool Agregar_Tipo_Usuario(cat_tipo_usuario _cat_tipo_usuario)
+        public bool usp_Agregar_Tipo_Usuario(cat_tipo_usuario _cat_tipo_usuario)
         {
-            bool respuesta = false;
+            int respuesta = 0;
 
-            // using (SqlCommand cmd = new SqlCommand("agregar_cat_tipo_usuario", conexion))
-            // {cmd.Connection = cn.AbrirConexion();
             cmd.Connection = cn.AbrirConexion();
-            cmd.CommandText = "agregar_cat_tipo_usuario";
+            cmd.CommandText = "usp_agregar_cat_tipo_usuario";
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@Descripcion", _cat_tipo_usuario.Descripcion);
             cmd.Parameters.AddWithValue("@Abreviatura", _cat_tipo_usuario.Abreviatura);
-                 
-            respuesta =Convert.ToBoolean(cmd.ExecuteNonQuery());
+          
+            respuesta = cmd.ExecuteNonQuery();
             cmd.Connection = cn.CerrarConexion();
-            if (respuesta)
+            if (respuesta > 0)
             {
                 return true;
             }     
@@ -127,13 +124,13 @@ namespace VillaNueva_Habitat.Datos
                 
         }
 
-        public string Eliminar_Tipo_Usuario(int id)
+        public string usp_Eliminar_Tipo_Usuario(int id)
         {
             string respuesta = string.Empty;
             try
             {
                 cmd.Connection = cn.AbrirConexion();
-                cmd.CommandText = "eliminar_cat_tipo_usuario";
+                cmd.CommandText = "usp_eliminar_cat_tipo_usuario";
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Id_tipo_usuario", id);
                 cmd.Parameters.Add("@OutputMessage", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;

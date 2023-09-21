@@ -20,29 +20,31 @@ namespace VillaNueva_Habitat.Datos
             SqlCommand cmd = new SqlCommand();
             bool respuesta = false;
 
-            try
-            {
-                cmd.Connection = cn.AbrirConexion();
-                cmd.CommandText = "usp_insertar_usuarios";
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@nombre", usuario.nombre);
-                cmd.Parameters.AddWithValue("@correo", usuario.Correo);
-                cmd.Parameters.AddWithValue("@clave", usuario.Clave);
-                cmd.Parameters.AddWithValue("@Confirmarclave", usuario.ConfirmarClave);
-                cmd.Parameters.AddWithValue("@restablecer", usuario.Restablecer);
-                cmd.Parameters.AddWithValue("@confirmado", usuario.Confirmado);
-                cmd.Parameters.AddWithValue("@token", usuario.Token);
-                cmd.Parameters.AddWithValue("@Estatus", 1);
-                int filasAfectadas = cmd.ExecuteNonQuery();
-                if (filasAfectadas > 0) respuesta = true;
-                cmd.Connection = cn.CerrarConexion();
-                return respuesta;
-            }
-             
-            catch
-            {
-                throw;
-            }
+               try
+               {
+                   cmd.Connection = cn.AbrirConexion();
+                   cmd.CommandText = "usp_insertar_usuarios";
+                   cmd.CommandType = CommandType.StoredProcedure;
+                   cmd.Parameters.AddWithValue("@nombre", usuario.nombre);
+                   cmd.Parameters.AddWithValue("@correo", usuario.Correo);
+                   cmd.Parameters.AddWithValue("@clave", usuario.Clave);
+                   cmd.Parameters.AddWithValue("@Confirmarclave", usuario.ConfirmarClave);
+                   cmd.Parameters.AddWithValue("@restablecer", usuario.Restablecer);
+                   cmd.Parameters.AddWithValue("@confirmado", usuario.Confirmado);
+                   cmd.Parameters.AddWithValue("@token", usuario.Token);
+                   cmd.Parameters.AddWithValue("@IdRol", usuario.RolId);
+                   cmd.Parameters.AddWithValue("@Estatus", 1);
+                   int filasAfectadas = cmd.ExecuteNonQuery();
+                   if (filasAfectadas > 0) respuesta = true;
+                   cmd.Connection = cn.CerrarConexion();
+                   return respuesta;
+               }
+
+               catch
+               {
+                   throw;
+               }
+         
         }
 
         public static UsuarioDTO validar(string correo,string clave)
@@ -94,7 +96,7 @@ namespace VillaNueva_Habitat.Datos
             try
             {
                 cmd.Connection = cn.AbrirConexion();
-                cmd.CommandText = "usp_obtener_usuarios";
+                cmd.CommandText = "usp_obtener_usuario";
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@correo", correo);
 
@@ -106,10 +108,12 @@ namespace VillaNueva_Habitat.Datos
                         {
                             IdUsuario = Convert.ToInt32(dr["IdUsuario"].ToString()),
                             nombre = dr["nombre"].ToString(),
+                            Correo = dr["Correo"].ToString(),
                             Clave = dr["Clave"].ToString(),
                             Restablecer = (bool)dr["Restablecer"],
                             Confirmado = (bool)dr["confirmado"],
                             Token = dr["Token"].ToString(),
+                            RolId = Convert.ToInt32(dr["IdRol"]),
                             Estatus = (bool)dr["Estatus"]
                         };
                     }

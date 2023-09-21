@@ -1,0 +1,45 @@
+﻿@model VillaNueva_Habitat.Models.Cat_Tipo_Proceso
+
+
+
+<h3>Estas seguro de querer eliminar el registro?</h3>
+<div>
+    <h4>Catálogo Tipo de Proceso</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdProceso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdProceso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Clave)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clave)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+            @Html.ActionLink("Volver a la Lista", "Index")
+        </div>
+    }
+</div>

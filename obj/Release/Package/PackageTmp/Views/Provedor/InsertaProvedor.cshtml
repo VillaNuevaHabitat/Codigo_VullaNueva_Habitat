@@ -1,0 +1,62 @@
+﻿@model VillaNueva_Habitat.Models.Provedores
+
+@{
+    ViewBag.Title = "InsertaProvedor";
+}
+
+<h2>Inserta Provedor</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="InsertaProvedores">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Código-Id_tipo_usuario" class="control-label">Id tipo usuario</label>
+                   <input asp-for="Id_tipo_usuario" class="form-control" placeholder="Id tipo usuario"/>
+                    <span asp-validation-for="Codigo_proveedor" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Razon_social" class="control-label">Razón Social</label>
+                    <input asp-for="Razon_social" class="form-control" placeholder="Ingrese la Razón Social" />
+                    <span asp-validation-for="Razon_social" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="RFC" class="control-label">RFC</label>
+                    <input asp-for="RFC" class="form-control" placeholder="RFC" />
+                    <span asp-validation-for="RFC" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Telefono" class="control-label">Teléfono</label>
+                    <input asp-for="Telefono" class="form-control" placeholder="Teléfono" />
+                    <span asp-validation-for="Telefono" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Calle" class="control-label">Calle</label>
+                    <input asp-for="Calle" class="form-control" placeholder="Calle" />
+                    <span asp-validation-for="Calle" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Numero_Exterior" class="control-label">Número Exterior</label>
+                    <input asp-for="Numero_Exterior" class="form-control" placeholder="Número Exterior" />
+                    <span asp-validation-for="Numero_Exterior" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Colonia" class="control-label">Colonia</label>
+                    <input asp-for="Colonia" class="form-control" placeholder="Colonia"/>
+                    <span asp-validation-for="Colonia" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Entidad" class="control-label">Entidad</label>
+                    <input asp-for="Entidad" class="form-control" placeholder="Entidad" />
+                    <span asp-validation-for="Entidad" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="create" class="btn btn-primary" />
+                </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="VillaNuevaConn-Web.config Connection String" description="VillaNuevaConn Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultValue="Data Source=SQL5110.site4now.net;Initial Catalog=db_a2f7c8_vherpv1;User Id=db_a2f7c8_vherpv1_admin;Password=0nBlrdJd07rLjQB;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\GABINO\\NET\ CORE\\VillaNueva_Habitat\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='VillaNuevaConn']/@connectionString" />
+  </parameter>
+</parameters>

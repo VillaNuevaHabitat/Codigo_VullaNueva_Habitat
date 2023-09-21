@@ -1,0 +1,46 @@
+﻿@model VillaNueva_Habitat.Models.cat_tipo_usuario
+
+@if (TempData["ErrorMessage"] != null)
+{
+<div class="alert alert-danger">
+    <strong>Error! </strong> @TempData["ErrorMessage"]
+    <button type="button" class="close" data-dismiss="alert" aria-label="close">
+        <span>&times;</span>
+    </button>
+</div>
+}
+
+<div>
+    <h4>Catálogo Tipo Usuario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Id_tipo_usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id_tipo_usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Abreviatura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Abreviatura)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id_tipo_usuario }) |
+    @Html.ActionLink("Volver a la Lista", "Index")
+</p>

@@ -1,0 +1,33 @@
+﻿@model VillaNueva_Habitat.Models.Cat_Tipo_Documento
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<div>
+    <h4>Editar Tipo Documento</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Id_Tipo_Documento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id_Tipo_Documento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_Tipo_Documento }) |
+    @Html.ActionLink("Volver a la Lista", "Index")
+</p>

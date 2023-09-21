@@ -1,0 +1,46 @@
+﻿@model List<VillaNueva_Habitat.Models.Provedores>
+
+@{
+    ViewBag.Title = "Catálogo de Provedores";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<p>Use this area to provide additional information.</p>
+<form>
+    <table class="table table-responsive table=hover">
+        <thread>
+            <tr class="table-active">
+                <th>Codigo proveedor</th>
+                <th>RFC</th>
+                <th>Telefono</th>
+                <th>Calle</th>
+                <th>Numero Exterior</th>
+                <th>Colonia</th>
+                <th>Entidad</th>
+            </tr>
+        </thread>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                @foreach (var provedor in Model)
+                {
+                    <tr>
+                        <td>@provedor.Codigo_proveedor</td>
+                        <td>@provedor.RFC</td>
+                        <td>@provedor.Telefono</td>
+                        <td>@provedor.Calle</td>
+                        <td>@provedor.Numero_Exterior</td>
+                        <td>@provedor.Colonia</td>
+                        <td>@provedor.Entidad</td>
+                        <td>
+                            <div class="btn-group btn-group-sa">
+                                <a asp-controller="Proveedores" asp-action="Edit" asp-route-id="@provedor.Codigo_proveedor" class="btn btn-primary"></a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</form>

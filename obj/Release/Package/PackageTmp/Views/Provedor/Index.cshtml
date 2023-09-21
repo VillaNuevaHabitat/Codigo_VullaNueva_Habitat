@@ -1,0 +1,65 @@
+﻿
+@model List<VillaNueva_Habitat.Models.Provedores>
+
+@{
+    ViewData["Title"] = "Provedores detalle";
+    var errorMessage = TempData["ErrorMessage"]?.ToString();
+    var successMessage = TempData["successMessage"]?.ToString();
+}
+
+
+@if (!string.IsNullOrWhiteSpace(successMessage))
+{
+    <div class="alert alert-success">
+        <b>Success : </b>@successMessage
+        <button type="button" class="btn-close float-end" data-bs-dismiss="alert" aria-label="close"></button>
+    </div>
+}
+else if (!string.IsNullOrWhiteSpace(errorMessage))
+{
+    <div class="alert alert-danger">
+        <b>Error : </b>@errorMessage
+        <button type="button" class="btn-close float-end" data-bs-dismiss="alert" aria-label="close"></button>
+    </div>
+}
+
+<form>
+    <button asp-action="Create" asp-controller="Provedores" class="btn btn-primary mb-3">Create Provedor</button>
+    <table class="table table-responsive table-bordared table-hover">
+        <thead>
+            <tr class="table-active">
+                <th>Codigo proveedor</th>
+                <th>Razon social</th>
+                <th>RFC</th>
+                <th>Telefono</th>
+                <th>Calle</th>
+                <th>Numero Exterior</th>
+                <th>Colonia</th>
+                <th>Entidad</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+           
+                @foreach (var provedores in Model)
+                {
+                    <tr>
+                        <td>@provedores.Codigo_proveedor</td>
+                        <td>@provedores.Razon_social</td>
+                        <td>@provedores.RFC</td>
+                        <td>@provedores.Telefono</td>
+                        <td>@provedores.Calle</td>
+                        <td>@provedores.Numero_Exterior</td>
+                        <td>@provedores.Colonia</td>
+                        <td>@provedores.Entidad</td>
+                        <td>
+                            <div class="btn-group btn-group-sm">
+                                <a asp-controller="Provedores" asp-action="Edit" asp-route-id="@provedores.Codigo_proveedor" class="btn btn-primary">Edit</a>
+                                <a asp-controller="Provedores" asp-action="Delete" asp-route-id="@provedores.Codigo_proveedor" class="btn btn-danger">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            
+    </table>
+</form>

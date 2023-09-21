@@ -1,0 +1,53 @@
+﻿@model VillaNueva_Habitat.Models.Cat_Sub_Proceso_Cat
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div>
+    <h4>Estas seguro de querer eliminar el registro?</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdSubProceso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdSubProceso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Clave)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clave)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            @Html.ActionLink("Volver a la Lista", "Index")
+        </div>
+    }
+</div>
