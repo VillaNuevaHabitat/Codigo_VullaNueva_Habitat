@@ -42,7 +42,7 @@ namespace VillaNueva_Habitat.Datos
 
         }
 
-        public List<cat_area_contacto> Obtener_cat_area_contacto_por_id(int Id_tipo_usuario)
+        public List<cat_area_contacto> Obtener_cat_area_contacto_por_id(int id)
         {
             cmd.Connection = cn.AbrirConexion();
             cmd.CommandText = "usp_obtener_cat_area_contacto_por_id";
@@ -62,7 +62,7 @@ namespace VillaNueva_Habitat.Datos
                         descripcion = dr["descripcion"].ToString(),
                        
                     };
-                    _obtener_cat_area_contacto.Add(_cat_tipo_usuario);
+                    _obtener_cat_area_contacto.Add(_cat_area_contacto);
 
                 }
                 cmd.Connection = cn.CerrarConexion();

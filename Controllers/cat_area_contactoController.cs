@@ -113,7 +113,7 @@ namespace VillaNueva_Habitat.Controllers
 
                 return RedirectToAction("Index");
             }
-            return View(_tipo_proceso);
+            return View(_tipo_contacto);
         }
 
         // POST: cat_area_contacto/Edit/5
