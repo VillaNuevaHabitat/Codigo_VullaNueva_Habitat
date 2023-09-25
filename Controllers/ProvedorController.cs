@@ -21,7 +21,7 @@ namespace VillaNueva_Habitat.Controllers
        
             try
             {
-                provedores = _provedores.GetAll();
+               // provedores = _provedores.GetAll();
             }
             catch (Exception ex)
             {

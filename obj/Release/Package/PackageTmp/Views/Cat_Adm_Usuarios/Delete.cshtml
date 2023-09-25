@@ -1,0 +1,112 @@
+﻿@model VillaNueva_Habitat.Models.cat_admin_usuarios
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h3>Estas seguro de querer eliminar el registro?</h3>
+<div>
+    <h4>Catálogo de Administración de Usuarios</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.id_usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Apellido_PAterno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Apellido_PAterno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Apellido_MAterno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Apellido_MAterno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estatus_Usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estatus_Usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Celular)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Celular)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contrasenia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contrasenia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tipo_Usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tipo_Usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha_Alta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha_Alta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario_Registra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario_Registra)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+            @Html.ActionLink("Volver a la Lista", "Index")
+        </div>
+    }
+</div>

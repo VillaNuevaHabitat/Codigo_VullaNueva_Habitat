@@ -147,25 +147,27 @@ namespace VillaNueva_Habitat.Controllers
             {
                 bool respuesta = DBUsuario.RestablecerActualizar(usuario.Restablecer,usuario.Clave,usuario.Token);
 
-                if(respuesta)
+                if (respuesta)
                 {
-                   
-                        string path = HttpContext.Server.MapPath("~/Plantilla/Restablecer.html");
-                        string content = System.IO.File.ReadAllText(path);
-                        string url = string.Format("{0}://{1}{2}", Request.Url.Scheme, Request.Headers["Host"], "/Inicio!Actualizar?Token=" + usuario.Token);
-                      //string url = string.Format("{0}://{1}{2}", Request.Url.Scheme, Request.Headers["Host"], "/Inicio!Confirmar?Token=" + usuario.Token);
+
+                    string path = HttpContext.Server.MapPath("~/Plantilla/Restablecer.html");
+                    string content = System.IO.File.ReadAllText(path);
+                    string url = string.Format("{0}://{1}{2}", Request.Url.Scheme, Request.Headers["Host"], "/Inicio!Actualizar?Token=" + usuario.Token);
+                    //string url = string.Format("{0}://{1}{2}", Request.Url.Scheme, Request.Headers["Host"], "/Inicio!Confirmar?Token=" + usuario.Token);
 
                     string htmlBody = string.Format(content, usuario.nombre, Url);
 
-                        CorreoDTO correoDTO = new CorreoDTO()
-                        {
-                            Para = usuario.nombre,
-                            Asunto = "Restablecer Cuenta",
-                            Contenido = htmlBody
-                        };
+                    CorreoDTO correoDTO = new CorreoDTO()
+                    {
+                        Para = usuario.Correo,
+                        Asunto = "Restablecer Cuenta",
+                        Contenido = htmlBody
+                    };
 
-                        bool enviado = CorreoServicio.Enviar(correoDTO);
-                        ViewBag.Restablecido = true;
+                    bool enviado = CorreoServicio.Enviar(correoDTO);
+                    ViewBag.Creado = true;
+                    ViewBag.Mensaje = $"Hemos enviado un mensaje al correo {usuario.Correo} para cambiar su contraseña..";
+
                        
                 }
                 else
@@ -203,6 +205,52 @@ namespace VillaNueva_Habitat.Controllers
             else
                 ViewBag.Mensaje = "No se pudo actualizar";
             return View();
+        }
+
+        private void FillDropDownList(int? CountryId = 0)
+        {
+            Cat_Tipo_Usuario _tipo_usuario = new Cat_Tipo_Usuario();
+
+
+            List<SelectListItem> tipo_usuario = new List<SelectListItem>();
+
+            foreach (var lst_tipo_usuario in _tipo_usuario.usp_Obtener_Tipo_Usuario())
+            {
+                tipo_usuario.Add(new SelectListItem()
+                { Value = "0", Text = "-", Selected = false });
+
+                tipo_usuario.Add(
+
+                    new SelectListItem()
+                    {
+                        Value = lst_tipo_usuario.Id_tipo_usuario.ToString(),
+                        Text = lst_tipo_usuario.Descripcion.ToString(),
+                        Selected = Convert.ToBoolean(lst_tipo_usuario.Id_tipo_usuario)
+                    }) ;
+            }
+
+            ViewData["Tipo_Usuario"] = tipo_usuario;
+
+
+           /* try
+            {
+                var lst_tipo_usuario = _tipo_usuario.usp_Obtener_Tipo_Usuario();
+                if (lst_tipo_usuario.Count == 0)
+                {
+                    TempData["InfoMessage"] = "No existe información en la base de datos";
+                    DBUsuario.Insert_Usuario_Log(Convert.ToInt32(Session["IdUsuario"]), Session["_usuario"].ToString(), Session["correo"].ToString(), Convert.ToInt32(Session["RolId"]), TempData["InfoMessage"].ToString(), "Tipo Usuario - List");
+
+                }
+                return View(lst_tipo_usuario);
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = ex.Message;
+                DBUsuario.Insert_Usuario_Log(Convert.ToInt32(Session["IdUsuario"]), Session["_usuario"].ToString(), Session["correo"].ToString(), Convert.ToInt32(Session["RolId"]), "Error : " + ex.Message, "Tipo Usuario - List");
+                return View();
+            }
+           */
+
         }
     }
 

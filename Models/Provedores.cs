@@ -33,5 +33,13 @@ namespace VillaNueva_Habitat.Models
 		[StringLength(50, ErrorMessage = "El nombre de la entidad debe ser menor o igual a 50 caracteres.")]
 		public string Entidad { get; set; }
 
+		public estatus Esattus { get; set; }
+
+		public enum estatus
+		{
+			Activo,
+			Inactivo
+		}
+
 	}
 }

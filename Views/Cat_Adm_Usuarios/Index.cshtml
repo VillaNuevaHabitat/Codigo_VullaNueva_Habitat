@@ -1,0 +1,126 @@
+﻿@model IEnumerable<VillaNueva_Habitat.Models.cat_admin_usuarios>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        <strong>Error : </strong> @TempData["ErrorMessage"]
+        <button type="button" class="close" data-dismiss="alert" aria-label="close">
+            <span>&times;</span>
+        </button>
+    </div>
+}
+else if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        <strong>Success ! </strong> @TempData["SuccessMessage"]
+        <button type="button" class="close" data-dismiss="alert" aria-label="close">
+            <span>&times;</span>
+        </button>
+    </div>
+}
+
+else if (TempData["InfoMessage"] != null)
+{
+    <div class="alert alert-Info">
+        <strong>Info ! </strong> @TempData["InfoMessage"]
+        <button type="button" class="close" data-dismiss="alert" aria-label="close">
+            <span>&times;</span>
+        </button>
+    </div>
+}
+
+<h2>Catálogo Administración de Usuarios</h2>
+<p>
+    <a class="btn btn-primary mb-3" href="@Url.Action("Create","Cat_Adm_Usuarios")">Crear Usuario</a>
+</p>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id_usuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Apellido_PAterno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Apellido_MAterno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tipo_Usuario)
+        </th>
+        @*  <th>
+                @Html.DisplayNameFor(model => model.Estatus_Usuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Celular)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contrasenia)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha_Alta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuario_Registra)
+            </th>*@
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_usuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellido_PAterno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellido_MAterno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estatus_Usuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipo_Usuario)
+            </td>
+            @* <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Celular)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Contrasenia)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fecha_Alta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Usuario_Registra)
+                </td>*@
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id_usuario }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Details", "Details", new { id = item.id_usuario }, new { @class = "btn btn-success" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.id_usuario }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>

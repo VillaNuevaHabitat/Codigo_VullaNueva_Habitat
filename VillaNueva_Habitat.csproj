@@ -173,6 +173,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\Adm_EmpresasController.cs" />
+    <Compile Include="Controllers\Cat_Adm_UsuariosController.cs" />
+    <Compile Include="Controllers\cat_area_contactoController.cs" />
+    <Compile Include="Controllers\cat_estatus_proyectoController.cs" />
     <Compile Include="Controllers\Cat_Sub_Proceso_CatController.cs" />
     <Compile Include="Controllers\Cat_Sub_Proceso_SysController.cs" />
     <Compile Include="Controllers\Cat_Sub_Proceso_UsrController.cs" />
@@ -187,6 +190,9 @@
     <Compile Include="Datos\Cat_Tipo_Usuario.cs" />
     <Compile Include="Datos\CDConexion.cs" />
     <Compile Include="Datos\DAL_Adm_Empresas.cs" />
+    <Compile Include="Datos\DAL_Cat_Adm_Usuarios.cs" />
+    <Compile Include="Datos\DAL_cat_area_contacto.cs" />
+    <Compile Include="Datos\DAL_cat_estatus_proyecto.cs" />
     <Compile Include="Datos\DAL_Cat_Sub_Proceso_Cat.cs" />
     <Compile Include="Datos\DAL_Cat_Sub_Proceso_Usr.cs" />
     <Compile Include="Datos\DbProvedores.cs" />
@@ -198,8 +204,12 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Cat_Administrador_Empresa.cs" />
+    <Compile Include="Models\cat_admin_usuarios.cs" />
+    <Compile Include="Models\cat_area_contacto.cs" />
+    <Compile Include="Models\cat_estatus_proyecto.cs" />
     <Compile Include="Models\Cat_Sub_Proceso_Cat.cs" />
     <Compile Include="Models\Cat_Sub_Proceso_Usr.cs" />
+    <Compile Include="Models\Cat_Tipos_Usuarios.cs" />
     <Compile Include="Models\Cat_Tipo_Documento.cs" />
     <Compile Include="Models\Cat_Tipo_Proceso.cs" />
     <Compile Include="Models\Cat_Tipo_Sub_Proceso.cs" />
@@ -296,10 +306,16 @@
     <Content Include="Views\Cat_Sub_Proceso_Cat\Delete.cshtml" />
     <Content Include="Views\Cat_Tipo_Proceso\Index.cshtml" />
     <Content Include="Views\Control_Obra\Index.cshtml" />
-    <Content Include="Views\Adm_Empresas\Index.cshtml" />
+    <Content Include="Views\Cat_Adm_Usuarios\Index.cshtml" />
+    <Content Include="Views\Cat_Adm_Usuarios\Create.cshtml" />
+    <Content Include="Views\Cat_Adm_Usuarios\Details.cshtml" />
+    <Content Include="Views\Cat_Adm_Usuarios\Edit.cshtml" />
+    <Content Include="Views\Cat_Adm_Usuarios\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\cat_area_contacto\" />
+    <Folder Include="Views\cat_estatus_proyecto\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

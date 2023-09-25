@@ -59,8 +59,8 @@ else if (TempData["InfoMessage"] != null)
                 @Html.DisplayFor(modelItem => item.Descripcion)
             </td>
             <td>
-                @Html.ActionLink("Editar", "Edit", new { id = item.Id_Tipo_Documento }, new { @class = "btn btn-primary" }) &nbsp;&nbsp;&nbsp;
-                @Html.ActionLink("Detalles", "Details", new { id = item.Id_Tipo_Documento }, new { @class = "btn btn-success" }) &nbsp;&nbsp;&nbsp;
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id_Tipo_Documento }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Detalles", "Details", new { id = item.Id_Tipo_Documento }, new { @class = "btn btn-success" })
                 @Html.ActionLink("Eliminar", "Delete", new { id = item.Id_Tipo_Documento }, new { @class = "btn btn-danger" })
             </td>
         </tr>

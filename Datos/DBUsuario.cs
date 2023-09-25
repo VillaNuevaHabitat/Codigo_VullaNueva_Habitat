@@ -204,5 +204,39 @@ namespace VillaNueva_Habitat.Datos
                 ex.Message.ToString();
             }
         }
+
+        public List<cat_tipo_usuario> usp_Obtener_Tipo_Usuario()
+        {
+            CDConexion cn = new CDConexion();
+            SqlCommand cmd = new SqlCommand();
+
+            cmd.Connection = cn.AbrirConexion();
+            cmd.CommandText = "usp_obtener_cat_tipo_usuario";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+
+
+            using (SqlDataReader dr = cmd.ExecuteReader())
+            {
+                List<cat_tipo_usuario> _obtener_cat_tipo_usuario = new List<cat_tipo_usuario>();
+                while (dr.Read())
+                {
+                    cat_tipo_usuario _cat_tipo_usuario = new cat_tipo_usuario()
+                    {
+                        Id_tipo_usuario = Convert.ToInt32(dr["Id_tipo_usuario"]),
+                        Descripcion = dr["Descripcion"].ToString(),
+                        Abreviatura = dr["Abreviatura"].ToString()
+                    };
+                    _obtener_cat_tipo_usuario.Add(_cat_tipo_usuario);
+
+                }
+                cmd.Connection = cn.CerrarConexion();
+                return _obtener_cat_tipo_usuario;
+
+            }
+
+
+
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿
 @model List<VillaNueva_Habitat.Models.Provedores>
 
+
 <!DOCTYPE html>
 
 <html>
@@ -43,66 +44,69 @@
                         </div>
                         <br />
 
-                        <div class="dropdown">
+                       
+                    
 
-                            @{
+                          <div class="dropdown">
 
-                                var listado = new List<SelectListItem>()
+            @{
 
-
-                                                                                                                                    {
-                                new SelectListItem()
-                                {
-                                    Text= "Seleccione una Opción",
-                                    Value = ""
-                                },
-                                new SelectListItem()
-                                {
-                                    Text= "Dirección General",
-                                    Value = "1"
-                                },
-                                 new SelectListItem()
-                                {
-                                    Text= "Costos y Presupuestos",
-                                    Value = "2"
-                                },
-                                 new SelectListItem()
-                                {
-                                    Text= "Control de Obra",
-                                    Value = "3"
-                                },
-                                  new SelectListItem()
-                                {
-                                    Text= "Supervisor de Obra",
-                                    Value = "4"
-                                },
-                                 new SelectListItem()
-                                {
-                                    Text= "Compras",
-                                    Value = "5"
-                                },
-                                  new SelectListItem()
-                                {
-                                    Text= "Ventas",
-                                    Value = "6"
-                                },
-                                 new SelectListItem()
-                                {
-                                    Text= "Recursos Humanos",
-                                    Value = "7"
-                                },
-                                  new SelectListItem()
-                                {
-                                    Text= "Administración y Finanzas",
-                                    Value = "8"
-                                }
-                            };
-                            }
-
-                            @Html.DropDownList("TipoUsuario", listado)
+                var listado = new List<SelectListItem>()
 
 
-                        </div>
+                                                                                                                    {
+                new SelectListItem()
+                {
+                    Text= "Seleccione una Opción",
+                    Value = ""
+                },
+                new SelectListItem()
+                {
+                    Text= "Dirección General",
+                    Value = "1"
+                },
+                 new SelectListItem()
+                {
+                    Text= "Costos y Presupuestos",
+                    Value = "2"
+                },
+                 new SelectListItem()
+                {
+                    Text= "Control de Obra",
+                    Value = "3"
+                },
+                  new SelectListItem()
+                {
+                    Text= "Supervisor de Obra",
+                    Value = "4"
+                },
+                 new SelectListItem()
+                {
+                    Text= "Compras",
+                    Value = "5"
+                },
+                  new SelectListItem()
+                {
+                    Text= "Ventas",
+                    Value = "6"
+                },
+                 new SelectListItem()
+                {
+                    Text= "Recursos Humanos",
+                    Value = "7"
+                },
+                  new SelectListItem()
+                {
+                    Text= "Administración y Finanzas",
+                    Value = "8"
+                }
+            };
+            }
+
+            @Html.DropDownList("TipoUsuario", listado)
+
+
+        </div>
                         <br />
 
                         @if (ViewBag.Mensaje != null)

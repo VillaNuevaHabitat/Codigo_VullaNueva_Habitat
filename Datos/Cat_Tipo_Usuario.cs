@@ -49,7 +49,6 @@ namespace VillaNueva_Habitat.Datos
         public List<cat_tipo_usuario> usp_Obtener_Tipo_Usuario_por_id(int Id_tipo_usuario)
         {
             cmd.Connection = cn.AbrirConexion();
-            cmd.Connection = cn.AbrirConexion();
             cmd.CommandText = "usp_get_tipo_usuario_por_id";
             cmd.CommandType = CommandType.StoredProcedure;
 
