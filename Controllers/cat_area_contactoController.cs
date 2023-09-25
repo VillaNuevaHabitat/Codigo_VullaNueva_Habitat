@@ -14,6 +14,8 @@ namespace VillaNueva_Habitat.Controllers
         // GET: cat_area_contacto
        
             // GET: Cat_Adm_Usuarios
+           
+        
             [HttpGet]
             public ActionResult Index()
             {
@@ -113,7 +115,7 @@ namespace VillaNueva_Habitat.Controllers
 
                 return RedirectToAction("Index");
             }
-            return View(_tipo_proceso);
+            return View(_tipo_contacto);
         }
 
         // POST: cat_area_contacto/Edit/5

@@ -1,0 +1,8 @@
+﻿################################################################################
+# Este archivo .gitignore ha sido creado automáticamente por Microsoft(R) Visual Studio.
+################################################################################
+
+/Scripts/datepicker
+/Scripts/sweetalert2/sweetalert2.all.min.js
+/Scripts/sweetalert2/sweetalert2.min.css
+/Scripts/Index.js

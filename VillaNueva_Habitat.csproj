@@ -237,6 +237,7 @@
     <None Include="Properties\PublishProfiles\chrissmen-001-site12 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\CustumJS\AutoHideAlert.js" />
+    <Content Include="Scripts\Index.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -311,11 +312,17 @@
     <Content Include="Views\Cat_Adm_Usuarios\Details.cshtml" />
     <Content Include="Views\Cat_Adm_Usuarios\Edit.cshtml" />
     <Content Include="Views\Cat_Adm_Usuarios\Delete.cshtml" />
+    <Content Include="Views\cat_estatus_proyecto\Index.cshtml" />
+    <Content Include="Views\cat_estatus_proyecto\Create.cshtml" />
+    <Content Include="Views\cat_estatus_proyecto\Delete.cshtml" />
+    <Content Include="Views\cat_estatus_proyecto\Edit.cshtml" />
+    <Content Include="Views\cat_area_contacto\Index.cshtml" />
+    <Content Include="Views\cat_area_contacto\Create.cshtml" />
+    <Content Include="Views\cat_area_contacto\Delete.cshtml" />
+    <Content Include="Views\cat_area_contacto\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\cat_area_contacto\" />
-    <Folder Include="Views\cat_estatus_proyecto\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

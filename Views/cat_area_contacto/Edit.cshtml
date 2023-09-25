@@ -1,0 +1,37 @@
+﻿@model IEnumerable<VillaNueva_Habitat.Models.cat_area_contacto>
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<div class="card">
+    <div class="card-header">
+        Editar Registro
+    </div>
+    <div class="card-body">
+
+
+        <form asp-action="Editar" asp-controller="cat_area_contactoController" method="post">
+
+            <input asp-for="IdContacto" type="hidden" class="form-control">
+            <div class="mb-3">
+                <label class="form-label">Id</label>
+                <input asp-for="id" type="text" class="form-control">
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Descripcion</label>
+                <input asp-for="Descripcion" type="text" class="form-control">
+                <span asp-validation-for="Descripcion" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a asp-action="Index" asp-controller="cat_area_contactoController" class="btn btn-warning">Volver a la lista</a>
+        </form>
+
+
+    </div>
+</div>
+

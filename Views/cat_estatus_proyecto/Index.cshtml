@@ -1,0 +1,43 @@
+﻿@model IEnumerable<VillaNueva_Habitat.Models.cat_estatus_proyecto>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<div class="card">
+    <div class="card-header">
+        Lista Contacto
+    </div>
+    <div class="card-body">
+        <a asp-action="Create" asp-controller="cat_estatus_proyectoController" class="btn btn-success"><i class="bi bi-plus-circle"></i> Crear Nuevo</a>
+        <hr />
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+
+                    <th>ID</th>
+                    <th>Descripcion</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.id</td>
+                        <td>@item.estatus</td>
+
+                        <td>
+                            <a asp-action="Edit" asp-controller="cat_estatus_proyectoController" class="btn btn-primary btn-sm" asp-route-id="@item.id">Editar</a>
+                            <a asp-action="Delete" asp-controller="cat_estatus_proyectoController" class="btn btn-danger btn-sm" asp-route-id="@item.id">Eliminar</a>
+                        </td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>
