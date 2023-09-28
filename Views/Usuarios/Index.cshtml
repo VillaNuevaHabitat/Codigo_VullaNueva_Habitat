@@ -22,39 +22,39 @@
                 <div class="card-body">
                     @if (ViewBag.Creado == null)
                     {
-                    <form action="@Url.Action("Registrar", "inicio")" method="post">
-                        <div class="bt-3">
-                            <input type="text" name="Nombre" class="form-control input_user" value="@(ViewBag.Nombre != null ? ViewBag.Nombre : "" )" placeholder="Nombre" required>
-                            @*<input type="text" class="form-control" name="Nombre" value="@(ViewBag.Nombre != null ? ViewBag.Nombre : "" )" required />*@
-                        </div>
-                        <br />
-                        <div class="bt-3">
-                            <input type="email" name="Correo" class="form-control input_user" value="@(ViewBag.correo != null ? ViewBag.correo : "" )" placeholder="Correo" required>
-                            @*<input type="email" class="form-control" name="Correo" value="@(ViewBag.Correo != null ? ViewBag.Correo : "" )" required />*@
-                        </div>
-                        <br />
-                        <div class="bt-3">
-                            <input type="password" name="Clave" class="form-control input_user" placeholder="Clave" required>
-                            @*<input type="password" class="form-control" name="Clave" required />*@
-                        </div>
-                        <br />
-                        <div class="bt-3">
-                            <input type="password" name="ConfirmarClave" class="form-control input_user" placeholder="Confirmar Clave" required>
-                            @*<input type="password" class="form-control" name="ConfirmarClave" required />*@
-                        </div>
-                        <br />
-
-                       
-                    
-
-                          <div class="dropdown">
-
-            @{
-
-                var listado = new List<SelectListItem>()
+                        <form action="@Url.Action("Registrar", "inicio")" method="post">
+                            <div class="bt-3">
+                                <input type="text" name="Nombre" class="form-control input_user" value="@(ViewBag.Nombre != null ? ViewBag.Nombre : "" )" placeholder="Nombre" required>
+                                @*<input type="text" class="form-control" name="Nombre" value="@(ViewBag.Nombre != null ? ViewBag.Nombre : "" )" required />*@
+                            </div>
+                            <br />
+                            <div class="bt-3">
+                                <input type="email" name="Correo" class="form-control input_user" value="@(ViewBag.correo != null ? ViewBag.correo : "" )" placeholder="Correo" required>
+                                @*<input type="email" class="form-control" name="Correo" value="@(ViewBag.Correo != null ? ViewBag.Correo : "" )" required />*@
+                            </div>
+                            <br />
+                            <div class="bt-3">
+                                <input type="password" name="Clave" class="form-control input_user" placeholder="Clave" required>
+                                @*<input type="password" class="form-control" name="Clave" required />*@
+                            </div>
+                            <br />
+                            <div class="bt-3">
+                                <input type="password" name="ConfirmarClave" class="form-control input_user" placeholder="Confirmar Clave" required>
+                                @*<input type="password" class="form-control" name="ConfirmarClave" required />*@
+                            </div>
+                            <br />
 
 
-                                                                                                                    {
+
+
+                            <div class="dropdown">
+
+                                @{
+
+                                    var listado = new List<SelectListItem>()
+
+
+                                                    {
                 new SelectListItem()
                 {
                     Text= "Seleccione una Opción",
@@ -101,28 +101,28 @@
                     Value = "8"
                 }
             };
-            }
+                                }
 
-            @Html.DropDownList("TipoUsuario", listado)
+                                @Html.DropDownList("TipoUsuario", listado)
 
 
-        </div>
-                        <br />
-
-                        @if (ViewBag.Mensaje != null)
-                        {
-                            <div class="alert alert-danger">
-                                @(ViewBag.Mensaje)
                             </div>
-                        }
+                            <br />
 
-                        <div class="mb-3">
-                            <div class="d-grid">
-                                <button class="btn btn-primary" type="submit">Registrarse</button>
-                                <a class="btn btn-link" href="@Url.Action("Login", "Inicio")">Ya tienes una cuenta? Inicia Sesión</a>
+                            @if (ViewBag.Mensaje != null)
+                            {
+                                <div class="alert alert-danger">
+                                    @(ViewBag.Mensaje)
+                                </div>
+                            }
+
+                            <div class="mb-3">
+                                <div class="d-grid">
+                                    <button class="btn btn-primary" type="submit">Registrarse</button>
+                                    <a class="btn btn-link" href="@Url.Action("Login", "Inicio")">Ya tienes una cuenta? Inicia Sesión</a>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
                     }
                     else
                     {

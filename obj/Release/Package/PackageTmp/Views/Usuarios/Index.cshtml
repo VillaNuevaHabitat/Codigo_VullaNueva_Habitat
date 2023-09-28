@@ -1,6 +1,7 @@
 ﻿
 @model List<VillaNueva_Habitat.Models.Provedores>
 
+
 <!DOCTYPE html>
 
 <html>
@@ -21,104 +22,107 @@
                 <div class="card-body">
                     @if (ViewBag.Creado == null)
                     {
-                    <form action="@Url.Action("Registrar", "inicio")" method="post">
-                        <div class="bt-3">
-                            <input type="text" name="Nombre" class="form-control input_user" value="@(ViewBag.Nombre != null ? ViewBag.Nombre : "" )" placeholder="Nombre" required>
-                            @*<input type="text" class="form-control" name="Nombre" value="@(ViewBag.Nombre != null ? ViewBag.Nombre : "" )" required />*@
-                        </div>
-                        <br />
-                        <div class="bt-3">
-                            <input type="email" name="Correo" class="form-control input_user" value="@(ViewBag.correo != null ? ViewBag.correo : "" )" placeholder="Correo" required>
-                            @*<input type="email" class="form-control" name="Correo" value="@(ViewBag.Correo != null ? ViewBag.Correo : "" )" required />*@
-                        </div>
-                        <br />
-                        <div class="bt-3">
-                            <input type="password" name="Clave" class="form-control input_user" placeholder="Clave" required>
-                            @*<input type="password" class="form-control" name="Clave" required />*@
-                        </div>
-                        <br />
-                        <div class="bt-3">
-                            <input type="password" name="ConfirmarClave" class="form-control input_user" placeholder="Confirmar Clave" required>
-                            @*<input type="password" class="form-control" name="ConfirmarClave" required />*@
-                        </div>
-                        <br />
-
-                        <div class="dropdown">
-
-                            @{
-
-                                var listado = new List<SelectListItem>()
+                        <form action="@Url.Action("Registrar", "inicio")" method="post">
+                            <div class="bt-3">
+                                <input type="text" name="Nombre" class="form-control input_user" value="@(ViewBag.Nombre != null ? ViewBag.Nombre : "" )" placeholder="Nombre" required>
+                                @*<input type="text" class="form-control" name="Nombre" value="@(ViewBag.Nombre != null ? ViewBag.Nombre : "" )" required />*@
+                            </div>
+                            <br />
+                            <div class="bt-3">
+                                <input type="email" name="Correo" class="form-control input_user" value="@(ViewBag.correo != null ? ViewBag.correo : "" )" placeholder="Correo" required>
+                                @*<input type="email" class="form-control" name="Correo" value="@(ViewBag.Correo != null ? ViewBag.Correo : "" )" required />*@
+                            </div>
+                            <br />
+                            <div class="bt-3">
+                                <input type="password" name="Clave" class="form-control input_user" placeholder="Clave" required>
+                                @*<input type="password" class="form-control" name="Clave" required />*@
+                            </div>
+                            <br />
+                            <div class="bt-3">
+                                <input type="password" name="ConfirmarClave" class="form-control input_user" placeholder="Confirmar Clave" required>
+                                @*<input type="password" class="form-control" name="ConfirmarClave" required />*@
+                            </div>
+                            <br />
 
 
-                                                                                                                                    {
-                                new SelectListItem()
-                                {
-                                    Text= "Seleccione una Opción",
-                                    Value = ""
-                                },
-                                new SelectListItem()
-                                {
-                                    Text= "Dirección General",
-                                    Value = "1"
-                                },
-                                 new SelectListItem()
-                                {
-                                    Text= "Costos y Presupuestos",
-                                    Value = "2"
-                                },
-                                 new SelectListItem()
-                                {
-                                    Text= "Control de Obra",
-                                    Value = "3"
-                                },
-                                  new SelectListItem()
-                                {
-                                    Text= "Supervisor de Obra",
-                                    Value = "4"
-                                },
-                                 new SelectListItem()
-                                {
-                                    Text= "Compras",
-                                    Value = "5"
-                                },
-                                  new SelectListItem()
-                                {
-                                    Text= "Ventas",
-                                    Value = "6"
-                                },
-                                 new SelectListItem()
-                                {
-                                    Text= "Recursos Humanos",
-                                    Value = "7"
-                                },
-                                  new SelectListItem()
-                                {
-                                    Text= "Administración y Finanzas",
-                                    Value = "8"
+
+
+                            <div class="dropdown">
+
+                                @{
+
+                                    var listado = new List<SelectListItem>()
+
+
+                                                    {
+                new SelectListItem()
+                {
+                    Text= "Seleccione una Opción",
+                    Value = ""
+                },
+                new SelectListItem()
+                {
+                    Text= "Dirección General",
+                    Value = "1"
+                },
+                 new SelectListItem()
+                {
+                    Text= "Costos y Presupuestos",
+                    Value = "2"
+                },
+                 new SelectListItem()
+                {
+                    Text= "Control de Obra",
+                    Value = "3"
+                },
+                  new SelectListItem()
+                {
+                    Text= "Supervisor de Obra",
+                    Value = "4"
+                },
+                 new SelectListItem()
+                {
+                    Text= "Compras",
+                    Value = "5"
+                },
+                  new SelectListItem()
+                {
+                    Text= "Ventas",
+                    Value = "6"
+                },
+                 new SelectListItem()
+                {
+                    Text= "Recursos Humanos",
+                    Value = "7"
+                },
+                  new SelectListItem()
+                {
+                    Text= "Administración y Finanzas",
+                    Value = "8"
+                }
+            };
                                 }
-                            };
+
+                                @Html.DropDownList("TipoUsuario", listado)
+
+
+                            </div>
+                            <br />
+
+                            @if (ViewBag.Mensaje != null)
+                            {
+                                <div class="alert alert-danger">
+                                    @(ViewBag.Mensaje)
+                                </div>
                             }
 
-                            @Html.DropDownList("TipoUsuario", listado)
-
-
-                        </div>
-                        <br />
-
-                        @if (ViewBag.Mensaje != null)
-                        {
-                            <div class="alert alert-danger">
-                                @(ViewBag.Mensaje)
+                            <div class="mb-3">
+                                <div class="d-grid">
+                                    <button class="btn btn-primary" type="submit">Registrarse</button>
+                                    <a class="btn btn-link" href="@Url.Action("Login", "Inicio")">Ya tienes una cuenta? Inicia Sesión</a>
+                                </div>
                             </div>
-                        }
-
-                        <div class="mb-3">
-                            <div class="d-grid">
-                                <button class="btn btn-primary" type="submit">Registrarse</button>
-                                <a class="btn btn-link" href="@Url.Action("Login", "Inicio")">Ya tienes una cuenta? Inicia Sesión</a>
-                            </div>
-                        </div>
-                    </form>
+                        </form>
                     }
                     else
                     {

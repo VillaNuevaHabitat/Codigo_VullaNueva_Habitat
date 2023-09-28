@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Control_Obra_NewModelStoreContainer" CdmEntityContainer="Control_Obra_NewEntities1">
+    <EntitySetMapping Name="cat_estatus_proyecto">
+      <EntityTypeMapping TypeName="Control_Obra_NewModel.cat_estatus_proyecto">
+        <MappingFragment StoreEntitySet="cat_estatus_proyecto">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

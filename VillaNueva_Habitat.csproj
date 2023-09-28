@@ -97,6 +97,8 @@
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Security.Cryptography.Algorithms, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Security.Cryptography.Algorithms.4.3.1\lib\net461\System.Security.Cryptography.Algorithms.dll</HintPath>
       <Private>True</Private>
@@ -173,6 +175,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\Adm_EmpresasController.cs" />
+    <Compile Include="Controllers\cat_adm_clientesController.cs" />
     <Compile Include="Controllers\Cat_Adm_UsuariosController.cs" />
     <Compile Include="Controllers\cat_area_contactoController.cs" />
     <Compile Include="Controllers\cat_estatus_proyectoController.cs" />
@@ -190,6 +193,7 @@
     <Compile Include="Datos\Cat_Tipo_Usuario.cs" />
     <Compile Include="Datos\CDConexion.cs" />
     <Compile Include="Datos\DAL_Adm_Empresas.cs" />
+    <Compile Include="Datos\DAL_cat_adm_clientes.cs" />
     <Compile Include="Datos\DAL_Cat_Adm_Usuarios.cs" />
     <Compile Include="Datos\DAL_cat_area_contacto.cs" />
     <Compile Include="Datos\DAL_cat_estatus_proyecto.cs" />
@@ -205,6 +209,7 @@
     </Compile>
     <Compile Include="Models\Cat_Administrador_Empresa.cs" />
     <Compile Include="Models\cat_admin_usuarios.cs" />
+    <Compile Include="Models\cat_adm_clientes.cs" />
     <Compile Include="Models\cat_area_contacto.cs" />
     <Compile Include="Models\cat_estatus_proyecto.cs" />
     <Compile Include="Models\Cat_Sub_Proceso_Cat.cs" />
@@ -228,16 +233,11 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Imagenes\Aplicacion Logo_8cm SIN FONDO.png" />
-    <Content Include="Imagenes\Aplicacion Logo_8cm_page-0001.jpeg" />
-    <Content Include="Imagenes\LOGO MAIL.png" />
     <Content Include="Plantilla\Confirmar.html" />
     <Content Include="Plantilla\Restablecer.html" />
     <None Include="Properties\PublishProfiles\chrissmen-001-site12 - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\chrissmen-001-site12 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
-    <Content Include="Scripts\CustumJS\AutoHideAlert.js" />
-    <Content Include="Scripts\Index.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -312,14 +312,13 @@
     <Content Include="Views\Cat_Adm_Usuarios\Details.cshtml" />
     <Content Include="Views\Cat_Adm_Usuarios\Edit.cshtml" />
     <Content Include="Views\Cat_Adm_Usuarios\Delete.cshtml" />
+    <Content Include="Views\cat_adm_clientes\Lista_Cat_Adm_Clientes.cshtml" />
+    <Content Include="Views\cat_adm_clientes\Index.cshtml" />
+    <Content Include="Views\cat_adm_clientes\Create.cshtml" />
+    <Content Include="Views\Estatus_Proyecto\Listar.cshtml" />
+    <Content Include="Views\Estatus_Proyecto\Index.cshtml" />
     <Content Include="Views\cat_estatus_proyecto\Index.cshtml" />
-    <Content Include="Views\cat_estatus_proyecto\Create.cshtml" />
-    <Content Include="Views\cat_estatus_proyecto\Delete.cshtml" />
-    <Content Include="Views\cat_estatus_proyecto\Edit.cshtml" />
     <Content Include="Views\cat_area_contacto\Index.cshtml" />
-    <Content Include="Views\cat_area_contacto\Create.cshtml" />
-    <Content Include="Views\cat_area_contacto\Delete.cshtml" />
-    <Content Include="Views\cat_area_contacto\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -328,6 +327,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

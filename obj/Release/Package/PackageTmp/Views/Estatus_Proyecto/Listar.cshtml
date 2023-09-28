@@ -1,0 +1,106 @@
+﻿
+@{
+    ViewBag.Title = "Listar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row m-4">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header">
+                Catálogo de Estatus de Proyecto
+            </div>
+            <div class="card-body">
+                <table id="tbEstatus" class="table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Estatus</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="FormModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Rol</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12">
+
+
+                        <input type="hidden" id="txtId" />
+                        <div class="form-group">
+                            <label for="txtNombre">Id:</label>
+                            <input type="text" class="form-control" id="txtid">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtestatus">estatus:</label>
+                            <input type="text" class="form-control" id="txtestatus">
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" onclick="Guardar()">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+    var tabla_persona;
+  $(document).ready( function () {
+      tabla_persona = $('#tbEstatus').DataTable({
+         "ajax": {
+             "url": "@Url.Action("Listar", "Estatus_Proyecto")",
+             "type": "GET",
+             "datatype": "json"
+         },
+         "columns": [
+             { "data": "estatus" },
+             { "data": "id", "render": function (data) {
+                     return "<button class='btn btn-primary btn-sm' type='button' onclick='abrirModal(" + data + ")'><i class='fas fa-pen'></i></button>" +
+                         "<button class='btn btn-danger btn-sm ml-2' type='button' onclick='Eliminar(" + data + ")'><i class='fa fa-trash'></i></button>"
+                 },
+                 "orderable": false,
+                 "searchable": false,
+                 "width": "150px"
+             }
+         ],
+         dom: 'Bfrtip',
+         buttons: [
+             {
+                 text: 'Agregar Nuevo',
+                 attr: { class: 'btn btn-success btn-sm' },
+                 action: function (e, dt, node, config) {
+                     abrirModal(0)
+                 }
+             }
+          ],
+          "language": {
+              "url": "@Url.Content("~/Content/datatable/idioma/datatable.es-ES.json")"
+          }
+
+     });
+ });
+
+
+
+    </script>

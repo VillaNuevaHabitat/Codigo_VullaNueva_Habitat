@@ -1,0 +1,450 @@
+﻿@model VillaNueva_Habitat.Models.cat_adm_clientes
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>cat_adm_clientes</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.id_cliente, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.id_cliente, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.id_cliente, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.rfc_cliente, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.rfc_cliente, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.rfc_cliente, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <br />
+    <div class="dropdown">
+
+        @{
+
+            var listado5 = new List<SelectListItem>()
+
+
+                                                {
+                new SelectListItem()
+                {
+                    Text= "Seleccione Regimen Fiscal",
+                    Value = ""
+                },
+                new SelectListItem()
+                {
+                    Text= "General de Ley Personas Morales",
+                    Value = "601"
+                },
+                 new SelectListItem()
+                {
+                    Text= "Personas Morales con Fines no Lucrativos",
+                    Value = "603"
+                },
+                 new SelectListItem()
+                {
+                    Text= "Sueldos y Salarios e Ingresos Asimilados a Salarios",
+                    Value = "605"
+                },
+                  new SelectListItem()
+                {
+                    Text= "Arrendamiento",
+                    Value = "606"
+                },
+                 new SelectListItem()
+                {
+                    Text= "Régimen de Enajenación o Adquisición de Bienes",
+                    Value = "607"
+                },
+                  new SelectListItem()
+                {
+                    Text= "Demás ingresos",
+                    Value = "608"
+                },
+                 new SelectListItem()
+                {
+                    Text= "Residentes en el Extranjero sin Establecimiento Permanente en México",
+                    Value = "610"
+                },
+                  new SelectListItem()
+                {
+                    Text= "Ingresos por Dividendos (socios y accionistas)",
+                    Value = "611"
+                }
+            };
+        }
+
+        @Html.DropDownList("TipoUsuario", listado5)
+
+
+    </div>
+    <br />
+    @* <div class="form-group">
+            @Html.LabelFor(model => model.cve_regimen_fiscal, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.cve_regimen_fiscal, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.cve_regimen_fiscal, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.razon_social, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.razon_social, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.razon_social, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="dropdown">
+
+        @{
+
+            var listado = new List<SelectListItem>()
+
+
+{
+                new SelectListItem()
+                {
+                    Text= "Seleccione un Estado",
+                    Value = ""
+                },
+                new SelectListItem()
+                {
+                    Text= "Aguas Calientes",
+                    Value = "1"
+                },
+                 new SelectListItem()
+                {
+                    Text= "Baja California",
+                    Value = "2"
+                },
+                 new SelectListItem()
+                {
+                    Text= "Baja California Sur",
+                    Value = "3"
+                },
+                  new SelectListItem()
+                {
+                    Text= "Campeche",
+                    Value = "4"
+                },
+                 new SelectListItem()
+                {
+                    Text= "Chiapas",
+                    Value = "5"
+                },
+                  new SelectListItem()
+                {
+                    Text= "Chihuahua",
+                    Value = "6"
+                },
+                 new SelectListItem()
+                {
+                    Text= "Coahuila",
+                    Value = "7"
+                },
+                  new SelectListItem()
+                {
+                    Text= "Colima",
+                    Value = "8"
+                }
+            };
+        }
+
+        @Html.DropDownList("Estados", listado)
+
+
+    </div>
+    <br />
+
+    <div class="dropdown">
+
+        @{
+
+            var listado1 = new List<SelectListItem>()
+
+
+                                                                                {
+                new SelectListItem()
+                {
+                    Text= "Seleccione un Municipio",
+                    Value = ""
+                },
+                new SelectListItem()
+                {
+                    Text= "Aguas Calientes",
+                    Value = "1"
+                },
+                 new SelectListItem()
+                {
+                    Text= "Ensenada",
+                    Value = "2"
+                },
+                 new SelectListItem()
+                {
+                    Text= "Comodú",
+                    Value = "3"
+                },
+                  new SelectListItem()
+                {
+                    Text= "Calkií",
+                    Value = "4"
+                },
+                 new SelectListItem()
+                {
+                    Text= "Abasolo",
+                    Value = "5"
+                },
+                  new SelectListItem()
+                {
+                    Text= "Armería",
+                    Value = "6"
+                },
+                 new SelectListItem()
+                {
+                    Text= "Ahumada",
+                    Value = "7"
+                },
+                  new SelectListItem()
+                {
+                    Text= "Acacoyagua",
+                    Value = "8"
+                }
+            };
+        }
+
+        @Html.DropDownList("Municipios", listado1)
+    </div>
+    <br />
+    @*<div class="form-group">
+                @Html.LabelFor(model => model.Estado, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Estado, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Municipio, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Municipio, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Municipio, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Colonia, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Colonia, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Colonia, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Calle, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Calle, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Calle, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Codigo_Postal, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Codigo_Postal, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Codigo_Postal, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="dropdown">
+
+        @{
+
+            var listado3 = new List<SelectListItem>()
+
+
+                                    {
+                new SelectListItem()
+                {
+                    Text= "Seleccione Forma de Pago",
+                    Value = ""
+                },
+                new SelectListItem()
+                {
+                    Text= "Efectivo",
+                    Value = "1"
+                },
+                 new SelectListItem()
+                {
+                    Text= "Cheque nominativo",
+                    Value = "2"
+                },
+                 new SelectListItem()
+                {
+                    Text= "Transferencia electrónica de fondos",
+                    Value = "3"
+                },
+                  new SelectListItem()
+                {
+                    Text= "Tarjeta de crédito",
+                    Value = "4"
+                },
+                 new SelectListItem()
+                {
+                    Text= "Monedero electrónico",
+                    Value = "5"
+                },
+                  new SelectListItem()
+                {
+                    Text= "Dinero electrónico",
+                    Value = "6"
+                },
+                 new SelectListItem()
+                {
+                    Text= "Vales de despensa",
+                    Value = "7"
+                },
+                  new SelectListItem()
+                {
+                    Text= "Dación en pago",
+                    Value = "8"
+                }
+            };
+        }
+
+        @Html.DropDownList("ModoPago", listado3)
+
+
+    </div>
+    <br />
+
+    <div class="dropdown">
+
+        @{
+
+            var listado4 = new List<SelectListItem>()
+
+
+                                    {
+                new SelectListItem()
+                {
+                    Text= "Seleccione la CFDI",
+                    Value = ""
+                },
+                new SelectListItem()
+                {
+                    Text= "Adquisición de mercancías.",
+                    Value = "G01"
+                },
+                 new SelectListItem()
+                {
+                    Text= "Devoluciones, descuentos o bonificaciones.",
+                    Value = "G02"
+                },
+                 new SelectListItem()
+                {
+                    Text= "Gastos en general.",
+                    Value = "G03"
+                },
+                  new SelectListItem()
+                {
+                    Text= "Construcciones.",
+                    Value = "I01"
+                },
+                 new SelectListItem()
+                {
+                    Text= "Mobiliario y equipo de oficina por inversiones.",
+                    Value = "I02"
+                },
+                  new SelectListItem()
+                {
+                    Text= "Equipo de transporte.",
+                    Value = "I03"
+                },
+                 new SelectListItem()
+                {
+                    Text= "Equipo de computo y accesorios.",
+                    Value = "I04"
+                },
+                  new SelectListItem()
+                {
+                    Text= "Dados, troqueles, moldes, matrices y herramental.",
+                    Value = "I05"
+                }
+            };
+        }
+
+        @Html.DropDownList("CFDI", listado4)
+
+
+    </div>
+    <br />
+
+    @*<div class="form-group">
+            @Html.LabelFor(model => model.Forma_Pago, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Forma_Pago, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Forma_Pago, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CFDI, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CFDI, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CFDI, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Instrucciones, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Instrucciones, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Instrucciones, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Dias_Recepcion_Facturas, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Dias_Recepcion_Facturas, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Dias_Recepcion_Facturas, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Dias_Credito, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Dias_Credito, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Dias_Credito, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

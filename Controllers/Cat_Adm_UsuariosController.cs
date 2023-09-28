@@ -117,8 +117,7 @@ namespace VillaNueva_Habitat.Controllers
         [HttpPost, ActionName("Edit")]
         public ActionResult Edit(cat_admin_usuarios adm_usuarios)
         {
-            try
-            {
+           
                 try
                 {
                     if (ModelState.IsValid)
@@ -146,11 +145,6 @@ namespace VillaNueva_Habitat.Controllers
                     DBUsuario.Insert_Usuario_Log(Convert.ToInt32(Session["IdUsuario"]), Session["_usuario"].ToString(), Session["correo"].ToString(), Convert.ToInt32(Session["RolId"]), "Error : " + ex.Message, "Adm Usuarios - Catalogos");
                     return View();
                 }
-            }
-            catch
-            {
-                return View();
-            }
         }
 
         // GET: Cat_Adm_Usuarios/Delete/5
