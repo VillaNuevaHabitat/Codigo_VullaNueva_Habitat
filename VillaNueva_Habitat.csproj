@@ -175,7 +175,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\Adm_EmpresasController.cs" />
+    <Compile Include="Controllers\Adm_Empresas_ContactoController.cs" />
     <Compile Include="Controllers\cat_adm_clientesController.cs" />
+    <Compile Include="Controllers\Cat_Adm_ProvedoresController.cs" />
     <Compile Include="Controllers\Cat_Adm_UsuariosController.cs" />
     <Compile Include="Controllers\cat_area_contactoController.cs" />
     <Compile Include="Controllers\cat_estatus_proyectoController.cs" />
@@ -194,11 +196,15 @@
     <Compile Include="Datos\CDConexion.cs" />
     <Compile Include="Datos\DAL_Adm_Empresas.cs" />
     <Compile Include="Datos\DAL_cat_adm_clientes.cs" />
+    <Compile Include="Datos\DAL_cat_adm_provedor.cs" />
     <Compile Include="Datos\DAL_Cat_Adm_Usuarios.cs" />
     <Compile Include="Datos\DAL_cat_area_contacto.cs" />
+    <Compile Include="Datos\DAL_cat_contacto_cliente.cs" />
     <Compile Include="Datos\DAL_cat_estatus_proyecto.cs" />
     <Compile Include="Datos\DAL_Cat_Sub_Proceso_Cat.cs" />
     <Compile Include="Datos\DAL_Cat_Sub_Proceso_Usr.cs" />
+    <Compile Include="Datos\DAL_empresa_contacto.cs" />
+    <Compile Include="Datos\DAL_provedor_contacto.cs" />
     <Compile Include="Datos\DbProvedores.cs" />
     <Compile Include="Datos\DBUsuario.cs" />
     <Compile Include="Datos\Db_Cat_Sub_Proceso_Sys.cs" />
@@ -210,8 +216,13 @@
     <Compile Include="Models\Cat_Administrador_Empresa.cs" />
     <Compile Include="Models\cat_admin_usuarios.cs" />
     <Compile Include="Models\cat_adm_clientes.cs" />
+    <Compile Include="Models\cat_adm_provedores.cs" />
     <Compile Include="Models\cat_area_contacto.cs" />
+    <Compile Include="Models\cat_cliente_contacto.cs" />
+    <Compile Include="Models\cat_empresas_contacto.cs" />
     <Compile Include="Models\cat_estatus_proyecto.cs" />
+    <Compile Include="Models\cat_provedor_contacto.cs" />
+    <Compile Include="Models\cat_provedor_documentos.cs" />
     <Compile Include="Models\Cat_Sub_Proceso_Cat.cs" />
     <Compile Include="Models\Cat_Sub_Proceso_Usr.cs" />
     <Compile Include="Models\Cat_Tipos_Usuarios.cs" />
@@ -233,6 +244,9 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Imagenes\Aplicacion Logo_8cm SIN FONDO.png" />
+    <Content Include="Imagenes\Aplicacion Logo_8cm_page-0001.jpeg" />
+    <Content Include="Imagenes\LOGO MAIL.png" />
     <Content Include="Plantilla\Confirmar.html" />
     <Content Include="Plantilla\Restablecer.html" />
     <None Include="Properties\PublishProfiles\chrissmen-001-site12 - FTP.pubxml" />
@@ -313,12 +327,17 @@
     <Content Include="Views\Cat_Adm_Usuarios\Edit.cshtml" />
     <Content Include="Views\Cat_Adm_Usuarios\Delete.cshtml" />
     <Content Include="Views\cat_adm_clientes\Lista_Cat_Adm_Clientes.cshtml" />
-    <Content Include="Views\cat_adm_clientes\Index.cshtml" />
+    <Content Include="Views\cat_adm_clientes\Index1.cshtml" />
     <Content Include="Views\cat_adm_clientes\Create.cshtml" />
     <Content Include="Views\Estatus_Proyecto\Listar.cshtml" />
     <Content Include="Views\Estatus_Proyecto\Index.cshtml" />
     <Content Include="Views\cat_estatus_proyecto\Index.cshtml" />
     <Content Include="Views\cat_area_contacto\Index.cshtml" />
+    <Content Include="Views\Cat_Adm_Provedores\Index1.cshtml" />
+    <Content Include="Views\cat_adm_clientes\Index.cshtml" />
+    <Content Include="Views\Cat_Adm_Provedores\Index.cshtml" />
+    <Content Include="Views\Cat_Adm_Provedores\Registrar.cshtml" />
+    <Content Include="Views\Adm_Empresas_Contacto\Contacto.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

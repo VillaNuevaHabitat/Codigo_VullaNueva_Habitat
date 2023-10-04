@@ -39,7 +39,7 @@ namespace VillaNueva_Habitat.Controllers
         // GET: cat_adm_clientes/Details/5
         public ActionResult Details(int id)
         {
-            var tipo_usuario = _cat_adm_clientes.usp_Obtener_Adm_Clientes_por_id(id).FirstOrDefault();
+            var tipo_usuario = _cat_adm_clientes.Obtener_Adm_Clientes_por_id(id).FirstOrDefault();
             try
             {
                 if (tipo_usuario == null)
@@ -75,7 +75,7 @@ namespace VillaNueva_Habitat.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    EsInsertado = _cat_adm_clientes.usp_Agregar_Adm_Clientes(adm_clientes);
+                    EsInsertado = _cat_adm_clientes.Agregar_Adm_Clientes(adm_clientes);
                     if (EsInsertado)
                     {
                         TempData["SuccessMessage"] = "El Cliente fue insertado correctamente";
@@ -103,7 +103,7 @@ namespace VillaNueva_Habitat.Controllers
         // GET: cat_adm_clientes/Edit/5
         public ActionResult Edit(int id)
         {
-            var _tipo_proceso = _cat_adm_clientes.usp_Obtener_Adm_Clientes_por_id(id).FirstOrDefault();
+            var _tipo_proceso = _cat_adm_clientes.Obtener_Adm_Clientes_por_id(id).FirstOrDefault();
 
             if (_tipo_proceso == null)
             {
@@ -154,7 +154,7 @@ namespace VillaNueva_Habitat.Controllers
             try
             {
 
-                var _tipo_usuario = _cat_adm_clientes.usp_Obtener_Adm_Clientes_por_id(id).FirstOrDefault();
+                var _tipo_usuario = _cat_adm_clientes.Obtener_Adm_Clientes_por_id(id).FirstOrDefault();
                 if (_tipo_usuario == null)
                 {
                     TempData["InfoMessage"] = "No se encontro el cliente con el id " + id.ToString();

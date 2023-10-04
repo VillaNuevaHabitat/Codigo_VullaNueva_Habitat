@@ -5,108 +5,133 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.id_cliente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.rfc_cliente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.cve_regimen_fiscal)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.razon_social)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Estado)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Municipio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Colonia)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Calle)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Codigo_Postal)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Forma_Pago)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CFDI)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Instrucciones)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Dias_Recepcion_Facturas)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Dias_Credito)
-        </th>
-        <th></th>
-    </tr>
+<form>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputRFC">RFC</label>
+            <input type="text" class="form-control" id="rfc" placeholder="RFC">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputRs">Razon Social</label>
+            <input type="text" class="form-control" id="RS" placeholder="Razon Social">
+        </div>
+    </div>
+    <div class="form-group col-md-6">
+        <label for="inputCalle">Calle</label>
+        <input type="text" class="form-control" id="rfc" placeholder="RFC">
+    </div>
+    <div class="form-group col-md-2">
+        <label for="inputEX">Numero.Ext</label>
+        <input type="text" class="form-control" id="Cp" placeholder="Numero.Ext">
+    </div>
+    <div class="form-group col-md-2">
+        <label for="inputInt">Numero.Int</label>
+        <input type="text" class="form-control" id="Cp" placeholder="Numero.Int">
+    </div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.id_cliente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.rfc_cliente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cve_regimen_fiscal)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.razon_social)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Estado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Municipio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Colonia)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Calle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Codigo_Postal)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Forma_Pago)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CFDI)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Instrucciones)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Dias_Recepcion_Facturas)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Dias_Credito)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputCol">Colonia</label>
+            <input type="text" class="form-control" id="Colonia" placeholder="Colonia">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputM">Municipio</label>
+            <input type="text" class="form-control" id="MN" placeholder="Municipio">
+        </div>
+    </div>
+    <div class="form-row">
 
-</table>
+        <div class="form-group col-md-4">
+            <label for="inputEstado">Estado</label>
+            <select id="inputEstado" class="form-control">
+                <option selected>Escoje...</option>
+                <option value="no">Seleccione uno...</option>
+                <option value="Aguascalientes">Aguascalientes</option>
+                <option value="Baja California">Baja California</option>
+                <option value="Baja California Sur">Baja California Sur</option>
+                <option value="Campeche">Campeche</option>
+                <option value="Chiapas">Chiapas</option>
+                <option value="Chihuahua">Chihuahua</option>
+                <option value="CDMX">Ciudad de México</option>
+                
+            </select>
+        </div>
+
+    </div>
+    <div class="form-group col-md-2">
+        <label for="inputCp">Codigo Postal</label>
+        <input type="text" class="form-control" id="Cp" placeholder="CP">
+    </div>
+
+
+    <div class="form-row">
+
+        <div class="form-group col-md-4">
+            <label for="inputPais">Pais</label>
+            <select id="inputPais" class="form-control">
+                <option selected>Escoje...</option>
+                <option value="no">Seleccione uno...</option>
+                <option value="México">México</option>
+                <option value="Estados Unidos">Estados Unidos</option>
+
+            </select>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputRF">Regimen Fiscal</label>
+            <input type="text" class="form-control" id="RF" placeholder="Regimen Fiscal">
+        </div>
+
+
+
+
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+
+            <select id="inputFP" class="form-control">
+                <option selected>Forma de pago...</option>
+                <option value="no">Seleccione uno...</option>
+                <option value="Efectivo">Efectivo</option>
+                <option value="Tarjeta"> Tarjeta</option>
+
+            </select>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+
+            <select id="inputCFDI" class="form-control">
+                <option selected>CFDI...</option>
+                <option value="no">Seleccione uno...</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group col-md-6">
+        <label for="inputInst">Instrucciones</label>
+        <input type="text" class="form-control" id="Instru" placeholder="Instrucciones">
+    </div>
+    <div class="form-group col-md-6">
+        <label for="inputDRF">Dias de Recepcion Facturas</label>
+        <input type="text" class="form-control" id="DRF" placeholder="Dias de Recepcion Facturas">
+    </div>
+    <div class="form-group col-md-6">
+        <label for="inputDC">Dias de Credito</label>
+        <input type="text" class="form-control" id="Dc" placeholder="Dias de Credito">
+    </div>
+    <div class="form-group col-md-6">
+        <label for="inputCM">$ Credito Max</label>
+        <input type="text" class="form-control" id="Cdm" placeholder="$ Credito Max">
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <button type="button" class="btn btn-primary btn-sm">Limpiar</button>
+            <button type="button" class="btn btn-primary btn-sm" style="block-size:auto">Guardar</button>
+        </div>
+    </div>
+</form>
+

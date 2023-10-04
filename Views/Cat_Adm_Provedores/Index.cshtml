@@ -1,0 +1,179 @@
+﻿
+<ul class="nav nav-pills nav-fill">
+    <li class="active"><a data-toggle="tab" href="#Fiscales">Fiscales</a></li>&nbsp;&nbsp;
+    <li class="active"><a data-toggle="tab" href="#Contacto">Contacto</a></li>&nbsp;&nbsp;
+    <li class="active"><a data-toggle="tab" href="#Documentos">Documentos</a></li>
+</ul>
+
+
+<div class="tab-content">
+    <div id="Fiscales" class="tab-pane fade in active"><br />
+
+        <div class="card">
+            <div class="card-header">
+                Datos del Provedor
+            </div>
+
+            <div class="card-body">
+
+            <form action="@Url.Action("Provedores", "Cat_Adm_Provedores")" method="post">
+                <div class="row form-group">
+                    <div class="form-group col-md-6">
+                        <input type="text" class="form-control" id="txt_rfc" placeholder="RFC">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input type="text" class="form-control" id="txt_razon_social" placeholder="Razón Social">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="form-group col-md-6">
+                        <input type="text" class="form-control" id="txt_calle" placeholder="Calle">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <input type="text" class="form-control" id="txt_num_ext" placeholder="Num. Ext.">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <input type="text" class="form-control" id="txt_num_int" placeholder="Num. Int.">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="form-group col-md-6">
+                        <input type="text" class="form-control" id="txt_colonia" placeholder="Colonia">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input type="text" class="form-control" id="txt_municipio" placeholder="Municipio">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="form-group col-md-5">
+                        @using (Html.BeginForm("Select","SelectElements"))
+                        {
+                        <select id="id_pais" name="Pais" class="form-control">
+                            <option selected>Escoge un País</option>
+                            <option value="1">México</option>
+                            <option value="2">Estados Unidos</option>
+                            <option value="3">Canada</option>
+                        </select>
+                        }
+                        
+                    </div>
+                    <div class="form-group col-md-5">
+                        <select id="inputState" class="form-control">
+                            <option selected>Escoge un Estado</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <input type="text" class="form-control" id="txt_cp" placeholder="C.P">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="form-group col-md-4">
+                        <select id="inputState" class="form-control">
+                            <option selected>Forma de Pago</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <select id="inputState" class="form-control">
+                            <option selected>Uso de CFDI</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <select id="inputState" class="form-control">
+                            <option selected>Regimen Fiscal</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="form-group col-md-2">
+                        <input type="text" class="form-control" id="txt_cp" placeholder="Estatus">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <input type="text" class="form-control" id="txt_cp" placeholder="$ Credito Max">
+                    </div>
+                    <div class="form-group col-md-8">
+                        <input type="text" class="form-control" id="txt_cp" placeholder="Comentarios">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-secondary">Limpiar</button>&nbsp;&nbsp;
+                        <button type="submit" class="btn btn-success">Guardar</button>
+                    </div>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="Contacto" class="tab-pane fade">
+        <form>
+            <div class="row form-group">
+                <div class="form-group col-md-6">
+
+                    <input type="text" class="form-control" id="txt_rfc" placeholder="Nombre">
+                </div>
+                <div class="form-group col-md-6">
+
+                    <select id="inputState" class="form-control">
+                        <option selected>Area Facturación</option>
+                        <option>...</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="form-group col-md-6">
+
+                    <input type="email" class="form-control" id="txt_calle" placeholder="Email General">
+                </div>
+                <div class="form-group col-md-3">
+
+                    <input type="text" class="form-control" id="txt_num_ext" placeholder="Teléfono">
+                </div>
+
+            </div>
+
+            <div class="form-group col-md-6">
+
+                <input type="text" class="form-control" id="txt_comentario" placeholder="Comentario">
+            </div>
+            <div class="row form-group">
+                <button type="submit" class="btn btn-secondary">Limpiar</button>&nbsp;&nbsp;
+                <button type="submit" class="btn btn-success">Guardar</button>
+            </div>
+        </form>
+    </div> @* FIN de Contactos*@
+
+
+    <div id="Documentos" class="tab-pane fade">
+        <form>
+            <div class="row form-group">
+                <div class="form-group col-md-6">
+
+                    <input type="text" class="form-control" id="txt_archivo" placeholder="Seleccione un archivo..">
+                </div>
+                <div class="form-group col-md-6">
+
+                    <select id="inputState" class="form-control">
+                        <option selected>Tipo Archivo</option>
+                        <option>...</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-group col-md-6">
+
+                <input type="text" class="form-control" id="txt_cp" placeholder="Comentario">
+            </div>
+            <div class="row form-group">
+                <button type="submit" class="btn btn-secondary">Limpiar</button>&nbsp;&nbsp;
+                <button type="submit" class="btn btn-success" value="Ok">Guardar</button>
+                <a class="btn btn-success" href="@Url.Action("Provedores", "Cat_Adm_Provedores")">Ingresar</a>
+            </div>
+        </form>
+    </div>
+</div>

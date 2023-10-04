@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using VillaNueva_Habitat.Datos;
+using VillaNueva_Habitat.Models;
 
 namespace VillaNueva_Habitat.Controllers
 {
@@ -37,7 +38,25 @@ namespace VillaNueva_Habitat.Controllers
         // GET: Adm_Empresas/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var tipo_usuario = _Cat_Adm_Empresas.Obtener_Adm_Empresas_por_id(id).FirstOrDefault();
+            try
+            {
+                if (tipo_usuario == null)
+                {
+                    TempData["InfoMessage"] = "Cliente no encontrado con el id " + id.ToString();
+                    DBUsuario.Insert_Usuario_Log(Convert.ToInt32(Session["IdUsuario"]), Session["_usuario"].ToString(), Session["correo"].ToString(), Convert.ToInt32(Session["RolId"]), TempData["InfoMessage"].ToString(), "Adm Empresas - Actualizar");
+
+                    return RedirectToAction("Index");
+                }
+                return View(tipo_usuario);
+            }
+            catch (Exception ex)
+            {
+
+                TempData["ErrorMessage"] = ex.Message;
+                DBUsuario.Insert_Usuario_Log(Convert.ToInt32(Session["IdUsuario"]), Session["_usuario"].ToString(), Session["correo"].ToString(), Convert.ToInt32(Session["RolId"]), "Error : " + ex.Message, "Adm Empresas - Actualizar");
+                return View();
+            }
         }
 
         // GET: Adm_Empresas/Create
@@ -48,16 +67,34 @@ namespace VillaNueva_Habitat.Controllers
 
         // POST: Adm_Empresas/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Cat_Administrador_Empresa _Cat_Administrador_Empresa)
         {
+            bool EsInsertado = false;
             try
             {
-                // TODO: Add insert logic here
+                if (ModelState.IsValid)
+                {
+                 //   EsInsertado = _Cat_Adm_Empresas.Agregar_Adm_Empresas(_Cat_Administrador_Empresa);
+                    if (EsInsertado)
+                    {
+                        TempData["SuccessMessage"] = "El Cliente fue insertado correctamente";
+                        DBUsuario.Insert_Usuario_Log(Convert.ToInt32(Session["IdUsuario"]), Session["_usuario"].ToString(), Session["correo"].ToString(), Convert.ToInt32(Session["RolId"]), TempData["SuccessMessage"].ToString(), "Adm Empresas - Insertar");
 
+                    }
+                    else
+                    {
+                        TempData["ErrorMessage"] = "No se pudo insertar el Documento correctamente";
+                        DBUsuario.Insert_Usuario_Log(Convert.ToInt32(Session["IdUsuario"]), Session["_usuario"].ToString(), Session["correo"].ToString(), Convert.ToInt32(Session["RolId"]), TempData["ErrorMessage"].ToString(), "Adm Empresas - Insertar");
+
+                    }
+                }
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
+                TempData["ErrorMesage"] = ex.Message;
+                DBUsuario.Insert_Usuario_Log(Convert.ToInt32(Session["IdUsuario"]), Session["_usuario"].ToString(), Session["correo"].ToString(), Convert.ToInt32(Session["RolId"]), TempData["ErrorMessage"].ToString(), "Adm Empresas - Insertar");
+
                 return View();
             }
         }
@@ -65,18 +102,53 @@ namespace VillaNueva_Habitat.Controllers
         // GET: Adm_Empresas/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var _tipo_proceso = _Cat_Adm_Empresas.Obtener_Adm_Empresas_por_id(id).FirstOrDefault();
+
+            if (_tipo_proceso == null)
+            {
+                TempData["InfoMessage"] = "Cliente no encontrado con el id " + id.ToString();
+                DBUsuario.Insert_Usuario_Log(Convert.ToInt32(Session["IdUsuario"]), Session["_usuario"].ToString(), Session["correo"].ToString(), Convert.ToInt32(Session["RolId"]), TempData["InfoMessage"].ToString(), "Cat Adm Empresas - Actualizar");
+
+                return RedirectToAction("Index");
+            }
+            return View(_tipo_proceso);
         }
 
         // POST: Adm_Empresas/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [HttpPost, ActionName("Edit")]
+        public ActionResult Edit(Cat_Administrador_Empresa _Cat_Administrador_Empresa)
         {
             try
             {
                 // TODO: Add update logic here
 
-                return RedirectToAction("Index");
+                try
+                {
+                    if (ModelState.IsValid)
+                    {
+                        bool EsActualizado = _Cat_Adm_Empresas.Actualizar_Adm_Empresas(_Cat_Administrador_Empresa);
+                        if (EsActualizado)
+                        {
+                            TempData["SuccessMessage"] = "El usuario fue catualizado correctamente...!";
+                            DBUsuario.Insert_Usuario_Log(Convert.ToInt32(Session["IdUsuario"]), Session["_usuario"].ToString(), Session["correo"].ToString(), Convert.ToInt32(Session["RolId"]), TempData["SuccessMessage"].ToString(), "Cat Adm Empresas - Actualizar");
+
+                        }
+                        else
+                        {
+                            TempData["InfoMessage"] = "El usuario no fue catualizado correctamente.";
+                            DBUsuario.Insert_Usuario_Log(Convert.ToInt32(Session["IdUsuario"]), Session["_usuario"].ToString(), Session["correo"].ToString(), Convert.ToInt32(Session["RolId"]), TempData["InfoMessage"].ToString(), "Cat Adm Empresas - Actualizar");
+
+                        }
+                    }
+                    return RedirectToAction("Index");
+                }
+                catch (Exception ex)
+                {
+
+                    TempData["ErrorMessage"] = ex.Message;
+                    DBUsuario.Insert_Usuario_Log(Convert.ToInt32(Session["IdUsuario"]), Session["_usuario"].ToString(), Session["correo"].ToString(), Convert.ToInt32(Session["RolId"]), "Error : " + ex.Message, "Cat Adm Empresas - Catalogos");
+                    return View();
+                }
             }
             catch
             {
@@ -87,21 +159,56 @@ namespace VillaNueva_Habitat.Controllers
         // GET: Adm_Empresas/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            try
+            {
+
+                var _tipo_usuario = _Cat_Adm_Empresas.Obtener_Adm_Empresas_por_id(id).FirstOrDefault();
+                if (_tipo_usuario == null)
+                {
+                    TempData["InfoMessage"] = "No se encontro el cliente con el id " + id.ToString();
+                    DBUsuario.Insert_Usuario_Log(Convert.ToInt32(Session["IdUsuario"]), Session["_usuario"].ToString(), Session["correo"].ToString(), Convert.ToInt32(Session["RolId"]), TempData["InfoMessage"].ToString(), "Cat Adm Empresas - Eliminar");
+                    return RedirectToAction("Index");
+                }
+                return View(_tipo_usuario);
+            }
+            catch (Exception ex)
+            {
+
+                TempData["ErrorMessage"] = ex.Message;
+                DBUsuario.Insert_Usuario_Log(Convert.ToInt32(Session["IdUsuario"]), Session["_usuario"].ToString(), Session["correo"].ToString(), Convert.ToInt32(Session["RolId"]), TempData["ErrorMessage"].ToString(), "Cat Adm Empresas - Eliminar");
+                return View();
+            }
         }
 
         // POST: Adm_Empresas/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmation(int id)
         {
             try
             {
-                // TODO: Add delete logic here
 
+
+                string result = _Cat_Adm_Empresas.Eliminar_Adm_Empresas(id);
+
+                if (result.Contains("eliminado"))
+                {
+                    TempData["SuccessMessage"] = result;
+                    DBUsuario.Insert_Usuario_Log(Convert.ToInt32(Session["IdUsuario"]), Session["_usuario"].ToString(), Session["correo"].ToString(), Convert.ToInt32(Session["RolId"]), TempData["SuccessMessage"].ToString(), "Cat Adm Empresas - Eliminar");
+
+                }
+                else
+                {
+                    TempData["ErrorMessage"] = result;
+                    DBUsuario.Insert_Usuario_Log(Convert.ToInt32(Session["IdUsuario"]), Session["_usuario"].ToString(), Session["correo"].ToString(), Convert.ToInt32(Session["RolId"]), TempData["ErrorMessage"].ToString(), "Cat Adm Empresas - Eliminar");
+
+                }
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
+
+                TempData["ErrorMessage"] = ex.Message;
+                DBUsuario.Insert_Usuario_Log(Convert.ToInt32(Session["IdUsuario"]), Session["_usuario"].ToString(), Session["correo"].ToString(), Convert.ToInt32(Session["RolId"]), TempData["ErrorMessage"].ToString(), "Cat Adm Empresas - Eliminar");
                 return View();
             }
         }

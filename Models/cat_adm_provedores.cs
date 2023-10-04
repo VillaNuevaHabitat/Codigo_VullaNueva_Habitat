@@ -7,18 +7,19 @@ using System.Web;
 
 namespace VillaNueva_Habitat.Models
 {
-    public class cat_adm_clientes
+    public class cat_adm_provedores
     {
-		public int id_cliente { get; set; }
+		public int id_provedor { get; set; }
 		[Required]
 		[DisplayName("Introduzca el RFC")]
-		public string rfc_cliente { get; set; }
+		public string rfc_provedor { get; set; }
 		[Required]
 		[DisplayName("Introduzca el Regimen Fiscal")]
 		public string regimen_fiscal { get; set; }
 		[Required]
 		[DisplayName("Introduzca la Razón Social")]
 		public string razon_social { get; set; }
+		public string Pais { get; set; }
 		[Required]
 		[DisplayName("Seleccione el Estado")]
 		public string Estado { get; set; }
@@ -52,18 +53,7 @@ namespace VillaNueva_Habitat.Models
 		[Required]
 		[DisplayName("Estatus")]
 		public bool Estatus { get; set; }
-		[Required]
-		[DisplayName("Usuario_Creo")]
+		
 		public string Usuario_Creo { get; set; }
-		[Required]
-		[DisplayName("Num_Ext")]
-		public string Num_Ext { get; set; }
-		[Required]
-		[DisplayName("Num_Int")]
-		public string Num_Int { get; set; }
-		[Required]
-		[DisplayName("Pais")]
-		public string Pais { get; set; }
-
-	}
+    }
 }
