@@ -189,6 +189,9 @@
     <Compile Include="Controllers\Control_ObraController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InicioController.cs" />
+    <Compile Include="Controllers\Obtener_EstadosController.cs" />
+    <Compile Include="Controllers\Obtener_PaisesController.cs" />
+    <Compile Include="Controllers\Obtener_regimen_FiscalController.cs" />
     <Compile Include="Controllers\ProvedorController.cs" />
     <Compile Include="Controllers\Tipo_UsuarioController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
@@ -204,6 +207,9 @@
     <Compile Include="Datos\DAL_Cat_Sub_Proceso_Cat.cs" />
     <Compile Include="Datos\DAL_Cat_Sub_Proceso_Usr.cs" />
     <Compile Include="Datos\DAL_empresa_contacto.cs" />
+    <Compile Include="Datos\DAL_obtener_estados.cs" />
+    <Compile Include="Datos\DAL_obtener_paises.cs" />
+    <Compile Include="Datos\DAL_obtener_regimen_fiscal.cs" />
     <Compile Include="Datos\DAL_provedor_contacto.cs" />
     <Compile Include="Datos\DbProvedores.cs" />
     <Compile Include="Datos\DBUsuario.cs" />
@@ -220,9 +226,12 @@
     <Compile Include="Models\cat_area_contacto.cs" />
     <Compile Include="Models\cat_cliente_contacto.cs" />
     <Compile Include="Models\cat_empresas_contacto.cs" />
+    <Compile Include="Models\cat_estados.cs" />
     <Compile Include="Models\cat_estatus_proyecto.cs" />
+    <Compile Include="Models\cat_paises.cs" />
     <Compile Include="Models\cat_provedor_contacto.cs" />
     <Compile Include="Models\cat_provedor_documentos.cs" />
+    <Compile Include="Models\cat_regimen_fiscal.cs" />
     <Compile Include="Models\Cat_Sub_Proceso_Cat.cs" />
     <Compile Include="Models\Cat_Sub_Proceso_Usr.cs" />
     <Compile Include="Models\Cat_Tipos_Usuarios.cs" />
@@ -341,6 +350,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Obtener_Estados\" />
+    <Folder Include="Views\Obtener_Paises\" />
+    <Folder Include="Views\Obtener_regimen_Fiscal\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
