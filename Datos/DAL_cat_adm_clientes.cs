@@ -148,7 +148,7 @@ namespace VillaNueva_Habitat.Datos
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@rfc_cliente", _cat_adm_clientes.rfc_cliente);
-            cmd.Parameters.AddWithValue("@cve_regimen_fiscal", _cat_adm_clientes.regimen_fiscal);
+            cmd.Parameters.AddWithValue("@regimen_fiscal", _cat_adm_clientes.regimen_fiscal);
             cmd.Parameters.AddWithValue("@razon_social", _cat_adm_clientes.razon_social);
             cmd.Parameters.AddWithValue("@Estado", _cat_adm_clientes.Estado);
             cmd.Parameters.AddWithValue("@Municipio", _cat_adm_clientes.Municipio);
