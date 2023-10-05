@@ -30,7 +30,7 @@ namespace VillaNueva_Habitat.Datos
                     {
                         id_cliente               = Convert.ToInt32(dr["id_cliente"]),
                         rfc_cliente              = dr["rfc_cliente"].ToString(),
-                        regimen_fiscal           = dr["cve_regimen_fiscal"].ToString(),
+                        regimen_fiscal           = dr["regimen_fiscal"].ToString(),
                         razon_social             = dr["razon_social"].ToString(),
                         Estado                   = dr["Estado"].ToString(),
                         Municipio                = dr["Municipio"].ToString(),
@@ -43,6 +43,7 @@ namespace VillaNueva_Habitat.Datos
                         Dias_Recepcion_Facturas  = dr["Dias_Recepcion_Facturas"].ToString(),
                         Dias_Credito             = dr["Dias_Credito"].ToString(),
                         Estatus                  = Convert.ToBoolean(dr["Estatus"]),
+                        Usuario_Creo             = dr["Usuario_Creo"].ToString(),
                         Num_Ext                  = dr["Num_Ext"].ToString(),
                         Num_Int                  = dr["Num_Int"].ToString(),
                         Pais                     = dr["Num_Int"].ToString(),
@@ -74,7 +75,7 @@ namespace VillaNueva_Habitat.Datos
                     {
                         id_cliente                = Convert.ToInt32(dr["id_cliente"]),
                         rfc_cliente               = dr["rfc_cliente"].ToString(),
-                        regimen_fiscal            = dr["cve_regimen_fiscal"].ToString(),
+                        regimen_fiscal            = dr["regimen_fiscal"].ToString(),
                         razon_social              = dr["razon_social"].ToString(),
                         Estado                    = dr["Estado"].ToString(),
                         Municipio                 = dr["Municipio"].ToString(),
@@ -86,6 +87,8 @@ namespace VillaNueva_Habitat.Datos
                         Instrucciones             = dr["Instrucciones"].ToString(),
                         Dias_Recepcion_Facturas   = dr["Dias_Recepcion_Facturas"].ToString(),
                         Dias_Credito              = dr["Dias_Credito"].ToString(),
+                        Estatus                   = Convert.ToBoolean(dr["Estatus"]),
+                        Usuario_Creo              = dr["Usuario_Creo"].ToString(),
                         Num_Ext                   = dr["Num_Ext"].ToString(),
                         Num_Int                   = dr["Num_Int"].ToString(),
                         Pais                      = dr["Pais"].ToString(),
@@ -108,7 +111,7 @@ namespace VillaNueva_Habitat.Datos
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@id_cliente", _cat_adm_clientes.id_cliente);
             cmd.Parameters.AddWithValue("@rfc_cliente", _cat_adm_clientes.rfc_cliente);
-            cmd.Parameters.AddWithValue("@cve_regimen_fiscal", _cat_adm_clientes.regimen_fiscal);
+            cmd.Parameters.AddWithValue("@regimen_fiscal", _cat_adm_clientes.regimen_fiscal);
             cmd.Parameters.AddWithValue("@razon_social", _cat_adm_clientes.razon_social);
             cmd.Parameters.AddWithValue("@Estado", _cat_adm_clientes.Estado);
             cmd.Parameters.AddWithValue("@Municipio", _cat_adm_clientes.Municipio);

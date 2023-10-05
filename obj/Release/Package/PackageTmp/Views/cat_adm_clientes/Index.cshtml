@@ -19,7 +19,7 @@
             @Html.DisplayNameFor(model => model.rfc_cliente)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.cve_regimen_fiscal)
+            @Html.DisplayNameFor(model => model.regimen_fiscal)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.razon_social)
@@ -54,6 +54,21 @@
         <th>
             @Html.DisplayNameFor(model => model.Dias_Credito)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Usuario_Creo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Num_Ext)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Num_Int)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pais)
+        </th>
         <th></th>
     </tr>
 
@@ -66,7 +81,7 @@
             @Html.DisplayFor(modelItem => item.rfc_cliente)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.cve_regimen_fiscal)
+            @Html.DisplayFor(modelItem => item.regimen_fiscal)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.razon_social)
@@ -100,6 +115,21 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Dias_Credito)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Estatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Usuario_Creo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Num_Ext)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Num_Int)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pais)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |

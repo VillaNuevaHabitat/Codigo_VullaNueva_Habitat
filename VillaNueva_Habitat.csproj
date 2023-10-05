@@ -187,6 +187,7 @@
     <Compile Include="Controllers\Cat_Tipo_DocumentoController.cs" />
     <Compile Include="Controllers\Cat_Tipo_ProcesoController.cs" />
     <Compile Include="Controllers\Control_ObraController.cs" />
+    <Compile Include="Controllers\Expediente_ProyectoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InicioController.cs" />
     <Compile Include="Controllers\Obtener_EstadosController.cs" />
@@ -204,6 +205,7 @@
     <Compile Include="Datos\DAL_cat_area_contacto.cs" />
     <Compile Include="Datos\DAL_cat_contacto_cliente.cs" />
     <Compile Include="Datos\DAL_cat_estatus_proyecto.cs" />
+    <Compile Include="Datos\DAL_cat_exp_proyecto.cs" />
     <Compile Include="Datos\DAL_Cat_Sub_Proceso_Cat.cs" />
     <Compile Include="Datos\DAL_Cat_Sub_Proceso_Usr.cs" />
     <Compile Include="Datos\DAL_empresa_contacto.cs" />
@@ -228,6 +230,7 @@
     <Compile Include="Models\cat_empresas_contacto.cs" />
     <Compile Include="Models\cat_estados.cs" />
     <Compile Include="Models\cat_estatus_proyecto.cs" />
+    <Compile Include="Models\cat_exp_proyecto.cs" />
     <Compile Include="Models\cat_paises.cs" />
     <Compile Include="Models\cat_provedor_contacto.cs" />
     <Compile Include="Models\cat_provedor_documentos.cs" />
@@ -336,17 +339,18 @@
     <Content Include="Views\Cat_Adm_Usuarios\Edit.cshtml" />
     <Content Include="Views\Cat_Adm_Usuarios\Delete.cshtml" />
     <Content Include="Views\cat_adm_clientes\Lista_Cat_Adm_Clientes.cshtml" />
-    <Content Include="Views\cat_adm_clientes\Index1.cshtml" />
-    <Content Include="Views\cat_adm_clientes\Create.cshtml" />
     <Content Include="Views\Estatus_Proyecto\Listar.cshtml" />
     <Content Include="Views\Estatus_Proyecto\Index.cshtml" />
     <Content Include="Views\cat_estatus_proyecto\Index.cshtml" />
     <Content Include="Views\cat_area_contacto\Index.cshtml" />
     <Content Include="Views\Cat_Adm_Provedores\Index1.cshtml" />
-    <Content Include="Views\cat_adm_clientes\Index.cshtml" />
     <Content Include="Views\Cat_Adm_Provedores\Index.cshtml" />
     <Content Include="Views\Cat_Adm_Provedores\Registrar.cshtml" />
     <Content Include="Views\Adm_Empresas_Contacto\Contacto.cshtml" />
+    <Content Include="Views\Expediente_Proyecto\Index.cshtml" />
+    <Content Include="Views\Expediente_Proyecto\Create.cshtml" />
+    <Content Include="Views\cat_adm_clientes\Index.cshtml" />
+    <Content Include="Views\cat_adm_clientes\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
